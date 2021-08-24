@@ -18,7 +18,8 @@ public class AccountController {
     @Autowired
     private AccountService service;
 
-    //holding off on update controller
+    // The 'update' controller has NOT been implemented
+    // The 'delete' controller has NOT been implemented
 
     @PostMapping(value = "/create")
     public ResponseEntity<Account> create(
@@ -44,5 +45,10 @@ public class AccountController {
             @PathVariable String username) {
         return new ResponseEntity<>(service.readByUsername(username),
                 HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete-account")
+    public ResponseEntity<Account> delete() {
+        return null;
     }
 }
