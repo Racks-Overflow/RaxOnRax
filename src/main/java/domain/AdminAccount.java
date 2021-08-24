@@ -29,6 +29,11 @@ public class AdminAccount extends Account{
         this.copayees = copayees;
     }
 
+    public AdminAccount(List<GuestAccount> attendees) {
+        this();
+        this.tripGroup = attendees;
+    }
+
     public List<GuestAccount> getTripGroup() {
         return tripGroup;
     }
