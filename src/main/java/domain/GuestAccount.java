@@ -14,4 +14,6 @@ public class GuestAccount extends Account {
 
     Boolean isGoing;
     Boolean isAuthorizedToPay;
+
+
 }
