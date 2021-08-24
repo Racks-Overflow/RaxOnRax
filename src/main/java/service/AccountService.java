@@ -16,6 +16,11 @@ public class AccountService {
     @Autowired
     private AccountRepo repo;
 
+    /* will need to include exception handling upon
+      * creating an account if an account already
+      * exists with the 'Account' s respective fields
+    */
+
     public Account create(Account account) {
         return repo.save(account);
     }
