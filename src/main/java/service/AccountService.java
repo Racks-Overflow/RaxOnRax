@@ -31,7 +31,18 @@ public class AccountService {
     }
 
     public Account update(Long id, Account newAccountData) {
-        return null;
+        Account originalAccount = repo.findById(id).get();
+        originalAccount.setAccountNum(newAccountData.getAccountNum());
+        originalAccount.setEmail(newAccountData.getEmail());
+        originalAccount.setAddress(newAccountData.getAddress());
+        originalAccount.setBalance(newAccountData.getBalance());
+        originalAccount.setUsername(newAccountData.getUsername());
+        originalAccount.setTripStatus(newAccountData.getTripStatus());
+        originalAccount.setPermission(newAccountData.getPermission());
+        originalAccount.setTrips(newAccountData.getTrips());
+        originalAccount.setAdmin(newAccountData.getAdmin());
+        originalAccount.setPermission(newAccountData.getPermission());
+        return repo.save(originalAccount);
     }
 
     public Account delete(Account account) {
@@ -46,7 +57,9 @@ public class AccountService {
     public Account depositToTrip(Long id, double input) {
         Account accountInDb = read(id);
         double newBalanceOfAcc = accountInDb.getBalance() + input;
+        accountInDb.setBalance(newBalanceOfAcc);
+        update(id, accountInDb);
 
-        return null;
+        return accountInDb;
     }
 }

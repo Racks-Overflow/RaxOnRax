@@ -20,6 +20,7 @@ public class Account {
     private double balance;
     private Boolean tripStatus;
     private Boolean permission;
+    private Boolean isAdmin;
 
     List<Trip> trips;
 
@@ -112,5 +113,13 @@ public class Account {
 
     public void setTrips(List<Trip> trips) {
         this.trips = trips;
+    }
+
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
     }
 }
