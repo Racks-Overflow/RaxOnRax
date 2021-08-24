@@ -1,1 +1,4 @@
 Stax on stax with the rax
+
+--> If using this program, you must change the username & password field in 
+      the src/main/java/resources/application.resources to access your local MySQL database
