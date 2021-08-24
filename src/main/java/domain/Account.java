@@ -11,7 +11,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int accountNum;
+    private Long accountNum;
 
     private String username;
     private String email;
@@ -26,7 +26,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(int accountNum, String username,
+    public Account(Long accountNum, String username,
                    String email, int phoneNumber,
                    String address, double balance,
                    Boolean tripStatus, Boolean permission,
@@ -42,11 +42,11 @@ public class Account {
         this.trips = trips;
     }
 
-    public int getAccountNum() {
+    public Long getAccountNum() {
         return accountNum;
     }
 
-    public void setAccountNum(int accountNum) {
+    public void setAccountNum(Long accountNum) {
         this.accountNum = accountNum;
     }
 
