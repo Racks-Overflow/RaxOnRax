@@ -2,6 +2,7 @@ package service;
 
 
 import domain.Account;
+import exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.AccountRepo;
@@ -20,7 +21,26 @@ public class AccountService {
     }
 
     public Account read(Long id) {
-        return repo.findById(id).get();
+        try {
+            return repo.findById(id).get();
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("There is " +
+                    "no account with that ID");
+        }
+    }
+
+    public Account readByUsername(String username) {
+        try {
+            List<Account> accList = new ArrayList<>();
+            readAll().forEach(account -> {
+                if (account.getUsername().equals(username))
+                    accList.add(account);
+            });
+            return accList.get(0);
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("There is no " +
+                    "account with that username");
+        }
     }
 
     public List<Account> readAll() {

@@ -18,12 +18,14 @@ public class Trip {
     private double groupBalance;
     private Boolean isActive;
 
-    List<Account> participants;
+    private List<Account> participants;
 
     public Trip() {
     }
 
-    public Trip(Long id, Date date, double groupBalance, Boolean isActive, List<Account> participants) {
+    public Trip(Long id, Date date,
+                double groupBalance, Boolean isActive,
+                List<Account> participants) {
         this.id = id;
         this.date = date;
         this.groupBalance = groupBalance;
