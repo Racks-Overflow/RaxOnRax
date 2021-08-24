@@ -15,6 +15,8 @@ public class TripService {
     @Autowired
     private TripRepo repo;
 
+    //start trip button-front end
+    //create newAdminAccount
     public Trip create(Trip trip) {
         return repo.save(trip);
     }
