@@ -42,4 +42,11 @@ public class AccountService {
     public Account delete(Long id) {
         return delete(read(id));
     }
+
+    public Account depositToTrip(Long id, double input) {
+        Account accountInDb = read(id);
+        double newBalanceOfAcc = accountInDb.getBalance() + input;
+
+        return null;
+    }
 }
