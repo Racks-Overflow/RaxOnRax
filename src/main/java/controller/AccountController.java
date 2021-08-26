@@ -47,9 +47,24 @@ public class AccountController {
                 HttpStatus.OK);
     }
 
-    @PutMapping(value = "/update-account-username")
-    public ResponseEntity<Account> updateUsername() {
-        return null;
+    @PutMapping(value = "/{id}/update-account-username/{username}")
+    public ResponseEntity<Account> updateUsername(
+            @PathVariable String username,
+            @PathVariable Long id
+    ) {
+        return new ResponseEntity<>(
+                service.updateUsername(id, username
+        ), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{id}/update-account-email/{email}")
+    public ResponseEntity<Account> updateEmail(
+            @PathVariable String email,
+            @PathVariable Long id
+    ) {
+        return new ResponseEntity<>(
+                service.updateEmail(id, email),
+                HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/delete-account")
