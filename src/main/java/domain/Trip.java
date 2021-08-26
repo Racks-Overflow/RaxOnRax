@@ -19,25 +19,31 @@ public class Trip {
     private Double groupBalance;
     private Double totalSpent;
     private Boolean isActive;
-    List<Double> transactionHistory;
-    private Integer tripLength;
+    private List<Double> transactionHistory;
+    private Integer tripLength; //days
 
-    @OneToOne
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "admin_account_id", referencedColumnName = "id")
     Account adminAccount;
 
     @ManyToMany
+    @JoinTable (
+            name = "trip_flippers",
+            joinColumns = @JoinColumn (name = "trip_id"),
+            inverseJoinColumns = @JoinColumn (name = "account_id")
+    )
     private Set<Account> guestsInvited;
+
     private Set<Account> guestConfirmed;
 
     public Trip() {
     }
 
-    public Trip(Long id, Date date, String destination,
+    public Trip(Date date, String destination,
                 Integer groupSize, Integer tripLength, Double tripEstimate,
                 Double groupBalance, Double totalSpent,
                 Boolean isActive, List<Double> transactionHistory,
                 Account adminAccount, Set<Account> guestsInvited, Set<Account> guestConfirmed) {
-        this.id = id;
         this.date = date;
         this.destination = destination;
         this.groupSize = groupSize;
@@ -53,7 +59,7 @@ public class Trip {
     }
 
     public Trip(Long id, String destination, Double tripEstimate, Account admin) {
-        this(id, null, destination, 1, 7, tripEstimate, null,0.00,  false, null, admin, null, null);
+        this(null, destination, 1, 7, tripEstimate, null,0.00,  false, null, admin, null, null);
 
     }
 
