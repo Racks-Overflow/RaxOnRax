@@ -55,21 +55,18 @@ public class AccountService {
         return result;
     }
 
-    public Account update(Long id, Account newAccountData) {
+    public Account updateUsername(Long id, String newUserName) {
         Account originalAccount = repo.findById(id).get();
-        originalAccount.setAccountNum(newAccountData.getAccountNum());
-        originalAccount.setEmail(newAccountData.getEmail());
-        originalAccount.setAddress(newAccountData.getAddress());
-        originalAccount.setBalance(newAccountData.getBalance());
-        originalAccount.setUsername(newAccountData.getUsername());
-        originalAccount.setTripStatus(newAccountData.getTripStatus());
-        originalAccount.setPermission(newAccountData.getPermission());
-        originalAccount.setTrips(newAccountData.getTrips());
-        originalAccount.setAdmin(newAccountData.getAdmin());
-        originalAccount.setPermission(newAccountData.getPermission());
+        originalAccount.setUsername(newUserName);
         return repo.save(originalAccount);
     }
 
+    public Account updateBalance(Long id, double input) { //input can be positive or negative
+        Account originalAccount = repo.findById(id).get();
+        double newBalanceOfAcc = originalAccount.getBalance() + input;
+        originalAccount.setBalance(newBalanceOfAcc);
+        return repo.save(originalAccount);
+    }
     public Account delete(Account account) {
         repo.delete(account);
         return account;
@@ -79,12 +76,5 @@ public class AccountService {
         return delete(read(id));
     }
 
-    public Account depositToTrip(Long id, double input) {
-        Account accountInDb = read(id);
-        double newBalanceOfAcc = accountInDb.getBalance() + input;
-        accountInDb.setBalance(newBalanceOfAcc);
-        update(id, accountInDb);
 
-        return accountInDb;
-    }
 }
