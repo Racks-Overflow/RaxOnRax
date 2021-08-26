@@ -47,6 +47,11 @@ public class AccountController {
                 HttpStatus.OK);
     }
 
+    @PutMapping(value = "/update-account-username")
+    public ResponseEntity<Account> updateUsername() {
+        return null;
+    }
+
     @DeleteMapping(value = "/delete-account")
     public ResponseEntity<Account> delete() {
         return null;
