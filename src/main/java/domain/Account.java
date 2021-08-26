@@ -1,9 +1,6 @@
 package domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -11,100 +8,95 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long accountNum;
+    private Long staxId;
+
+    @ManyToMany
+    List<Trip> trips;
+
+    @OneToOne
+    private Trip adminTrip;
 
     private String username;
-    private String email;
-    private int phoneNumber; // preset length of phoneNum in SQL table
-    private String address;
-    private double balance;
-    private Boolean tripStatus;
-    private Boolean permission;
-    private Boolean isAdmin;
+    private String password;
+    private String appEmail;
+    private Double balance;
 
-    List<Trip> trips;
+    @OneToOne
+    private BankAccount account;
+
+    private Boolean isGoing;
+
+    enum Role{ADMIN, GUEST};
+
+
 
     public Account() {
     }
 
-    public Account(Long accountNum, String username,
-                   String email, int phoneNumber,
-                   String address, double balance,
-                   Boolean tripStatus, Boolean permission,
-                   List<Trip> trips) {
-        this.accountNum = accountNum;
-        this.username = username;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.balance = balance;
-        this.tripStatus = tripStatus;
-        this.permission = permission;
+    public Account(Long staxId, List<Trip> trips, Trip adminTrip, String username, String password, String appEmail, Double balance, BankAccount account, Boolean isGoing) {
+        this.staxId = staxId;
         this.trips = trips;
-    }
-
-    public Long getAccountNum() {
-        return accountNum;
-    }
-
-    public void setAccountNum(Long accountNum) {
-        this.accountNum = accountNum;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
+        this.adminTrip = adminTrip;
         this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
+        this.password = password;
+        this.appEmail = appEmail;
         this.balance = balance;
+        this.account = account;
+        this.isGoing = isGoing;
     }
 
-    public Boolean getTripStatus() {
-        return tripStatus;
+    public Account (Long id, List<Trip> trips, String username, BankAccount account,
+                    String password, Double balance, Boolean isGoing){
+        this(id, trips, null, username, password, null, balance, account, false );
     }
 
-    public void setTripStatus(Boolean tripStatus) {
-        this.tripStatus = tripStatus;
+
+    public Long getStaxId() {
+        return staxId;
     }
 
-    public Boolean getPermission() {
-        return permission;
+    public void setStaxId(Long staxId) {
+        this.staxId = staxId;
     }
 
-    public void setPermission(Boolean permission) {
-        this.permission = permission;
+    public Trip getAdminTrip() {
+        return adminTrip;
+    }
+
+    public void setAdminTrip(Trip adminTrip) {
+        this.adminTrip = adminTrip;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAppEmail() {
+        return appEmail;
+    }
+
+    public void setAppEmail(String appEmail) {
+        this.appEmail = appEmail;
+    }
+
+    public BankAccount getAccount() {
+        return account;
+    }
+
+    public void setAccount(BankAccount account) {
+        this.account = account;
+    }
+
+    public Boolean getGoing() {
+        return isGoing;
+    }
+
+    public void setGoing(Boolean going) {
+        isGoing = going;
     }
 
     public List<Trip> getTrips() {
@@ -115,11 +107,19 @@ public class Account {
         this.trips = trips;
     }
 
-    public Boolean getAdmin() {
-        return isAdmin;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAdmin(Boolean admin) {
-        isAdmin = admin;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }

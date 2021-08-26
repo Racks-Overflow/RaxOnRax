@@ -14,11 +14,10 @@ public class AccountTest {
         Trip trip = new Trip();
         List<Trip> tripList = new ArrayList<>();
         tripList.add(trip);
-        Account acc = new Account(1L, "wally",
-                "jjj.jj@hotmail.com", 1234123422,
+        Account acc = new Account(1L, tripList ,"wally",
+                new BankAccount(1234123422L),
                 "123413", 1234.0,
-                false, false,
-                tripList);
+                false);
 
         //decided to hold off on testing domains
     }
