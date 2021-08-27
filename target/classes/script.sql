@@ -1,0 +1,59 @@
+DROP TABLE IF EXISTS Account;
+DROP TABLE IF EXISTS Trip;
+DROP TABLE IF EXISTS BankAccount;
+
+--CREATE TABLE Account (
+--  ID INT NOT NULL AUTO_INCREMENT,
+--  UserName VARCHAR2(255) NOT NULL DEFAULT '',
+--  Email VARCHAR2(255) NOT NULL DEFAULT '',
+--  Address VARCHAR2(255) NOT NULL DEFAULT '',
+--  PhoneNum VARCHAR2(20) NOT NULL DEFAULT '',
+--  Balance INT NOT NULL DEFAULT 0,
+--  TripStatus BIT,
+--  Permissions BIT,
+--  AccountNum INT NOT NULL,
+--  PRIMARY KEY (ID));
+
+CREATE TABLE Account (
+    ID INT NOT NULL AUTO_INCREMENT,
+    Active_Trip_Admin INT,
+    Username VARCHAR(255) NOT NULL,
+    AppEmail VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Balance DOUBLE NOT NULL DEFAULT 0.00,
+    IsGoing BIT,
+    BankAccount INT,
+    PRIMARY KEY (ID));
+
+    ALTER TABLE Account
+    ADD FOREIGN KEY (Active_Trip_Admin)
+    REFERENCES Trip (ID);
+
+    ALTER TABLE Account
+    ADD FOREIGN KEY (BankAccount)
+    REFERENCES BankAccount(ID);
+
+  CREATE TABLE Trip (
+    ID INT NOT NULL AUTO_INCREMENT,
+    Admin_Account_ID INT NOT NULL,
+    TripDate DATE NOT NULL,
+    Destination VARCHAR(255) NOT NULL DEFAULT '',
+    GroupSize INT NOT NULL DEFAULT 1,
+    GroupBalance DOUBLE NOT NULL DEFAULT 0.00,
+    TotalSpent DOUBLE NOT NULL DEFAULT 0.00,
+    TripIsActive BIT,
+    TripLength INT NOT NULL,
+    PRIMARY KEY (ID));
+
+    ALTER TABLE Trip
+    ADD FOREIGN KEY (Admin_Account_ID)
+    REFERENCES Account (ID);
+
+  CREATE TABLE BankAccount (
+    ID INT,
+    GovtName VARCHAR(255) NOT NULL DEFAULT '',
+    Email VARCHAR(255) NOT NULL DEFAULT '',
+    PhoneNumber VARCHAR(10) NOT NULL DEFAULT '',
+    Address VARCHAR(255) NOT NULL DEFAULT '',
+    PRIMARY KEY (ID));
+

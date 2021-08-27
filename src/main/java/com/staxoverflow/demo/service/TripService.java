@@ -69,15 +69,33 @@ public class TripService {
         return repo.save(original);
     }
 
-    public Trip updateGroupBalance(Long id, Double deposit) {
+    //update balance logic
+    public Trip depositToGroupBalance(Long id, Account account, Double deposit) {
         Trip original = read(id);
+        account.setBalance(account.getBalance() - deposit);
         original.setGroupBalance(original.getGroupBalance() + deposit);
         return repo.save(original);
+
     }
 
-    public Trip updateTotalSpent(Long id, Double expenses) {
+    //update balance logic
+    public Trip withdrawFromGroupBalance(Long id, Double cost){
+            Trip original = read(id);
+            original.setGroupBalance(original.getGroupBalance() - cost);
+            original.setGroupBalance(original.getGroupBalance() + cost);
+            return repo.save(original);
+    }
+
+
+    public Trip sumAllAccountBalances(Long id) {
         Trip original = read(id);
-        original.setGroupBalance(original.getGroupBalance() + expenses);
+        original.getGuestsInvited().stream()
+                .filter(Account::getGoing)
+                .forEach(acc -> depositToGroupBalance(id, acc, acc.getBalance()));
+        //Set<Account> going = original.getGuestsInvited().stream()
+        //.filter(Account::getGoing).collect(Collectors.toSet());
+
+        //Double total = going.stream().mapToDouble(Double::doubleValue).sum();
         return repo.save(original);
     }
 
@@ -88,17 +106,11 @@ public class TripService {
     } //revert this to repo.save if com.staxoverflow.demo.controller doesn't work
 
     public Trip assignAdmin(Long id, Account account){
-        try {
-            Trip original = read(id);
-            if (account.getGoing()) {
-                original.assignAdmin(account);
-            }
-            return repo.save(original);
-
-        } catch (Exception e){
-            throw new UnsupportedOperationException("Account is not admin");
-        }
+        Trip original = read(id);
+        original.assignAdmin(account);
+        return repo.save(original);
     }
+
 
     public Trip removeGuest(Long id, Account account) {
         Trip original = read(id);

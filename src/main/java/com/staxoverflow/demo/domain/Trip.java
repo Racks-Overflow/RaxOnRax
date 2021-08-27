@@ -13,7 +13,9 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Temporal(value =  TemporalType.DATE)
     private Date date;
+
     private String destination;
     private Integer groupSize;
     private Double tripEstimate;
@@ -157,7 +159,7 @@ public class Trip {
     }
 
     public void assignAdmin(Account account) {
-        this.adminAccount = account;
+        setAdminAccount(account);
     }
 
     public void removeGuest(Account account) {

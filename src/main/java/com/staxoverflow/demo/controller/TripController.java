@@ -53,19 +53,19 @@ public class TripController {
         return new ResponseEntity<>(tripService.addGuest(tripId, newGuest), HttpStatus.OK);
     }
 
-//    @PutMapping(value = "/{trip_id}/invite/{id}")
-//    public ResponseEntity<Trip> assignAdmin(
-//            @PathVariable Long tripId,
-//            @PathVariable Long accountId){
-//        Account newGuest = accountService.read(accountId);
-//        return new ResponseEntity<>(tripService.addGuest(tripId, newGuest),
-//                HttpStatus.OK);
-//    }
+    @PutMapping(value = "/{trip_id}/assign-admin/{id}")
+    public ResponseEntity<Trip> assignAdmin(
+            @PathVariable Long tripId,
+            @PathVariable Long accountId){
+        Account newAdmin = accountService.read(accountId);
+        return new ResponseEntity<>(tripService.assignAdmin(tripId, newAdmin),
+                HttpStatus.OK);
+    }
 
     @PutMapping(value = "/{trip_id}/remove/{id}")
     public ResponseEntity<Trip> removeGuest(@PathVariable Long tripId, @PathVariable Long accountId){
-        Account newGuest = accountService.read(accountId);
-        return new ResponseEntity<>(tripService.removeGuest(tripId, newGuest), HttpStatus.OK);
+        Account byeGuest = accountService.read(accountId);
+        return new ResponseEntity<>(tripService.removeGuest(tripId, byeGuest), HttpStatus.OK);
     }
 
 
