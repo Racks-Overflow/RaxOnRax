@@ -84,32 +84,19 @@ public class TripService {
     public Trip addGuest(Long id, Account account){
         Trip original = read(id);
         original.inviteGuest(account);
-        return updateSize(id, original.getGroupSize());
-    } //revert this to repo.save if com.staxoverflow.demo.controller doesn't work
+        return repo.save(original);
+    }
 
     public Trip assignAdmin(Long id, Account account){
-        try {
-            Trip original = read(id);
-            if (account.getGoing()) {
-                original.assignAdmin(account);
-            }
-            return repo.save(original);
-
-        } catch (Exception e){
-            throw new UnsupportedOperationException("Account is not admin");
-        }
+        Trip original = read(id);
+        original.assignAdmin(account);
+        return repo.save(original);
     }
 
     public Trip removeGuest(Long id, Account account) {
         Trip original = read(id);
-        try {
-            if (original.getGuestsInvited().contains(account)) {
-                original.removeGuest(account);
-            }
-            return repo.save(original);
-        } catch (Exception e){
-            throw new ResourceNotFoundException("Trip does not contain that account");
-        }
+        original.removeGuest(account);
+        return repo.save(original);
     }
 
 

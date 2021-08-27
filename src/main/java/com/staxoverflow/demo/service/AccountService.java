@@ -9,6 +9,7 @@ import com.staxoverflow.demo.repository.AccountRepo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AccountService {
@@ -21,19 +22,23 @@ public class AccountService {
       * exists with the 'Account' s respective fields
     */
 
-    public Boolean checkDatabaseForExistingUsername(String userInput) {
-        return readByUsername(userInput) != null; //There's an account with that field
-    }
-
-    public Boolean checkDatabaseForExistingEmail(String userInput) {
-        return readByEmail(userInput) != null; //There's an account with that field
-    }
+//    public Boolean checkDatabaseForExistingUsername(String userInput) {
+//        return readByUsername(userInput) != null; //There's an account with that field
+//    }
+//
+//    public Boolean checkDatabaseForExistingEmail(String userInput) {
+//        return readByEmail(userInput) != null; //There's an account with that field
+//    }
+//
+//    public Account create(Account account) {
+//        if (checkDatabaseForExistingEmail(account.getAppEmail()) ||
+//                checkDatabaseForExistingUsername(account.getUsername())) {
+//            throw new ResourceNotFoundException("An account already exists with that information");
+//        }
+//        return repo.save(account);
+//    }
 
     public Account create(Account account) {
-        if (checkDatabaseForExistingEmail(account.getAppEmail()) ||
-                checkDatabaseForExistingUsername(account.getUsername())) {
-            throw new ResourceNotFoundException("An account already exists with that information");
-        }
         return repo.save(account);
     }
 
@@ -42,18 +47,11 @@ public class AccountService {
                 orElseThrow(() -> new ResourceNotFoundException("User does not exist"));
     }
 
-    public Account readByUsername(String username) {
-        try {
-            List<Account> accList = new ArrayList<>();
-            readAll().forEach(account -> {
-                if (account.getUsername().equals(username))
-                    accList.add(account);
-            });
-            return accList.get(0);
-        } catch (Exception e) {
-            throw new ResourceNotFoundException("There is no " +
-                    "account with that username");
-        }
+    public List<Account> readByUsername(String username) {
+            return readAll()
+                    .stream().filter(account ->
+                            account.getUsername().equals(username))
+                    .collect(Collectors.toList());
     }
 
     public Account readByEmail(String userInput) {
@@ -92,7 +90,7 @@ public class AccountService {
 
     public Account updateEmail(Long id, String newEmail) {
         Account ogAcc = read(id);
-        ogAcc.setUsername(newEmail);
+        ogAcc.setAppEmail(newEmail);
         repo.save(ogAcc);
         return ogAcc;
     }

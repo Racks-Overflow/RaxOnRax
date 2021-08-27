@@ -24,7 +24,7 @@ public class Account {
     private String username;
     private String password;
     private String appEmail;
-    private Double balance;
+    private double balance;
 
     @OneToOne
     private BankAccount account;
@@ -33,38 +33,46 @@ public class Account {
 
     public enum Role{ADMIN, GUEST};
 
-
-
     public Account() {
     }
 
-
-
-    public Account(Long staxId, List<Trip> trips,
-                   Trip adminTrip, String username,
-                   String password, String appEmail,
-                   Double balance, BankAccount account,
-                   Boolean isGoing) {
+    public Account(Long staxId,
+                   String username,
+                   String password,
+                   String appEmail,
+                   double balance) {
         this.staxId = staxId;
-        this.trips = trips;
-        this.adminTrip = adminTrip;
         this.username = username;
         this.password = password;
         this.appEmail = appEmail;
         this.balance = balance;
-        this.account = account;
-        this.isGoing = isGoing;
     }
 
-    public Account (Long id, List<Trip> trips,
-                    String username, BankAccount account,
-                    String password, Double balance,
-                    Boolean isGoing){
-        this(id, trips,
-                null, username,
-                password, null,
-                balance, account, false );
-    }
+//    public Account(Long staxId, List<Trip> trips,
+//                   Trip adminTrip, String username,
+//                   String password, String appEmail,
+//                   Double balance, BankAccount account,
+//                   Boolean isGoing) {
+//        this.staxId = staxId;
+//        this.trips = trips;
+//        this.adminTrip = adminTrip;
+//        this.username = username;
+//        this.password = password;
+//        this.appEmail = appEmail;
+//        this.balance = balance;
+//        this.account = account;
+//        this.isGoing = isGoing;
+//    }
+
+//    public Account (Long id, List<Trip> trips,
+//                    String username, BankAccount account,
+//                    String password, Double balance,
+//                    Boolean isGoing){
+//        this(id, trips,
+//                null, username,
+//                password, null,
+//                balance, account, false );
+//    }
 
 
     public Long getStaxId() {
