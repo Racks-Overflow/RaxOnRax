@@ -1,11 +1,11 @@
-package service;
+package com.staxoverflow.demo.service;
 
 
-import domain.Account;
-import exception.ResourceNotFoundException;
+import com.staxoverflow.demo.domain.Account;
+import com.staxoverflow.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.AccountRepo;
+import com.staxoverflow.demo.repository.AccountRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class AccountService {
     @Autowired
     private AccountRepo repo;
 
-    /* will need to include exception handling upon
+    /* will need to include com.staxoverflow.demo.exception handling upon
       * creating an account if an account already
       * exists with the 'Account' s respective fields
     */

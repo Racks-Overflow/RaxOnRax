@@ -1,4 +1,4 @@
-package domain;
+package com.staxoverflow.demo.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,24 +13,24 @@ public class BankAccount {
     String phoneNumber; // preset length of phoneNum in SQL table
     String address;
 
-    @OneToOne
-    Account account;
+//    @OneToOne
+//    Account account;
 
     public BankAccount() { }
 
-    public BankAccount(Long accountNum, String govtName, String email, String phoneNumber, String address, Account account) {
-        this.accountNum = accountNum;
-        this.govtName = govtName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.account = account;
-    }
+//    public BankAccount(Long accountNum, String govtName, String email, String phoneNumber, String address, Account account) {
+//        this.accountNum = accountNum;
+//        this.govtName = govtName;
+//        this.email = email;
+//        this.phoneNumber = phoneNumber;
+//        this.address = address;
+//        this.account = account;
+//    }
 
-    public BankAccount(Long accountNum) {
-        this(accountNum, "User", null, null, null, null);
-
-    }
+//    public BankAccount(Long accountNum) {
+//        this(accountNum, "User", null, null, null, null);
+//
+//    }
 
     public Long getAccountNum() {
         return accountNum;
@@ -72,11 +72,11 @@ public class BankAccount {
         this.address = address;
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
+//    public Account getAccount() {
+//        return account;
+//    }
+//
+//    public void setAccount(Account account) {
+//        this.account = account;
+//    }
 }
