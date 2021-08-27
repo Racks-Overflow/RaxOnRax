@@ -32,7 +32,7 @@ public class Account {
 
     private Boolean isGoing;
 
-    enum Role{ADMIN, GUEST};
+    public enum Role{ADMIN, GUEST};
 
 
 

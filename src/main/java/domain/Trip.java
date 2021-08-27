@@ -3,6 +3,7 @@ package domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -32,9 +33,8 @@ public class Trip {
             joinColumns = @JoinColumn (name = "trip_id"),
             inverseJoinColumns = @JoinColumn (name = "account_id")
     )
-    private Set<Account> guestsInvited;
+    private Set<Account> guestsInvited = new HashSet<>();
 
-    private Set<Account> guestConfirmed;
 
     public Trip() {
     }
@@ -43,7 +43,7 @@ public class Trip {
                 Integer groupSize, Integer tripLength, Double tripEstimate,
                 Double groupBalance, Double totalSpent,
                 Boolean isActive, List<Double> transactionHistory,
-                Account adminAccount, Set<Account> guestsInvited, Set<Account> guestConfirmed) {
+                Account adminAccount, Set<Account> guestsInvited) {
         this.date = date;
         this.destination = destination;
         this.groupSize = groupSize;
@@ -55,14 +55,48 @@ public class Trip {
         this.transactionHistory = transactionHistory;
         this.adminAccount = adminAccount;
         this.guestsInvited = guestsInvited;
-        this.guestConfirmed = guestConfirmed;
     }
 
     public Trip(Long id, String destination, Double tripEstimate, Account admin) {
-        this(null, destination, 1, 7, tripEstimate, null,0.00,  false, null, admin, null, null);
+        this(null, destination, 1, 7, tripEstimate, null,0.00,  false, null, admin, null);
 
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Double getGroupBalance() {
+        return groupBalance;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public Integer getTripLength() {
+        return tripLength;
+    }
+
+    public void setTripLength(Integer tripLength) {
+        this.tripLength = tripLength;
+    }
 
     public String getDestination() {
         return destination;
@@ -73,7 +107,7 @@ public class Trip {
     }
 
     public Integer getGroupSize() {
-        return groupSize;
+        return getGuestsInvited().size();
     }
 
     public void setGroupSize(Integer groupSize) {
@@ -124,13 +158,16 @@ public class Trip {
         this.guestsInvited = guestsInvited;
     }
 
-    public Set<Account> getGuestConfirmed() {
-        return guestConfirmed;
+
+    public void inviteGuest(Account account) {
+        guestsInvited.add(account);
     }
 
-    public void setGuestConfirmed(Set<Account> guestConfirmed) {
-        this.guestConfirmed = guestConfirmed;
+    public void assignAdmin(Account account) {
+        this.adminAccount = account;
     }
 
-
+    public void removeGuest(Account account) {
+        guestsInvited.remove(account);
+    }
 }
