@@ -13,9 +13,9 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long staxId;
 
-//    @JsonIgnore
-//    @ManyToMany (mappedBy = "trip_flippers")
-//    List<Trip> trips = new ArrayList<>();
+    @JsonIgnore
+    @ManyToMany
+    List<Trip> trips = new ArrayList<>();
 //
 //    @OneToMany (mappedBy =  "active_trip_admin")
 //    private Trip adminTrip;

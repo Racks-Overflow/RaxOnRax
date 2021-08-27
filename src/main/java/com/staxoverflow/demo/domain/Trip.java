@@ -27,13 +27,12 @@ public class Trip {
 //    @JoinColumn (name = "admin_account_id", referencedColumnName = "id")
 //    Account adminAccount;
 //
-//    @ManyToMany
-//    @JoinTable (
-//            name = "trip_flippers",
-//            joinColumns = @JoinColumn (name = "trip_id"),
-//            inverseJoinColumns = @JoinColumn (name = "account_id")
-//    )
-//    private Set<Account> guestsInvited = new HashSet<>();
+    @ManyToMany
+    @JoinTable (
+            joinColumns = @JoinColumn (name = "trip_id"),
+            inverseJoinColumns = @JoinColumn (name = "account_id")
+    )
+    private Set<Account> guestsInvited = new HashSet<>();
 
 
     public Trip() {
