@@ -95,6 +95,13 @@ public class AccountService {
         return ogAcc;
     }
 
+    public Account updateIsGoing(Long id) {
+        Account ogAcc = read(id);
+        ogAcc.setGoing(true);
+        repo.save(ogAcc);
+        return ogAcc;
+    }
+
     public Account delete(Account account) {
         if (account.getBalance() > 0.0 || account.getBalance() < 0.0) {
             throw new ResourceNotFoundException("You must set your balance to $0.00 before deletion");
