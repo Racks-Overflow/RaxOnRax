@@ -23,10 +23,9 @@ public class Trip {
 //    private List<Double> transactionHistory;
     private Integer tripLength; //days
 
-//    @ManyToOne (cascade = CascadeType.ALL)
-//    @JoinColumn (name = "admin_account_id", referencedColumnName = "id")
-//    Account adminAccount;
-//
+    @OneToOne
+    Account adminAccount;
+
     @ManyToMany
     @JoinTable (
             joinColumns = @JoinColumn (name = "trip_id"),
@@ -38,28 +37,31 @@ public class Trip {
     public Trip() {
     }
 
-//    public Trip(Date date, String destination,
-//                Integer groupSize, Integer tripLength, Double tripEstimate,
-//                Double groupBalance, Double totalSpent,
-//                Boolean isActive, List<Double> transactionHistory,
-//                Account adminAccount, Set<Account> guestsInvited) {
-//        this.date = date;
-//        this.destination = destination;
-//        this.groupSize = groupSize;
-//        this.tripLength =tripLength;
-//        this.tripEstimate = tripEstimate;
-//        this.groupBalance = groupBalance;
-//        this.totalSpent = totalSpent;
-//        this.isActive = isActive;
-//        this.transactionHistory = transactionHistory;
-//        this.adminAccount = adminAccount;
-//        this.guestsInvited = guestsInvited;
-//    }
-//
-//    public Trip(Long id, String destination, Double tripEstimate, Account admin) {
-//        this(null, destination, 1, 7, tripEstimate, null,0.00,  false, null, admin, null);
-//
-//    }
+    public Trip(Date date, String destination,
+                Integer groupSize, Integer tripLength, Double tripEstimate,
+                Double groupBalance, Double totalSpent,
+                Boolean isActive,
+                Account adminAccount, Set<Account> guestsInvited) {
+        this.date = date;
+        this.destination = destination;
+        this.groupSize = groupSize;
+        this.tripLength =tripLength;
+        this.tripEstimate = tripEstimate;
+        this.groupBalance = groupBalance;
+        this.totalSpent = totalSpent;
+        this.isActive = isActive;
+        this.adminAccount = adminAccount;
+        this.guestsInvited = guestsInvited;
+    }
+
+    public Trip(Long id, String destination, Double tripEstimate, Account admin) {
+        this(null, destination,
+                1, 7,
+                tripEstimate, null,
+                0.00,  false,
+                admin, null);
+
+    }
 
     public Long getId() {
         return id;
@@ -105,9 +107,9 @@ public class Trip {
         this.destination = destination;
     }
 
-//    public Integer getGroupSize() {
-//        return getGuestsInvited().size();
-//    }
+    public Integer getGroupSize() {
+        return getGuestsInvited().size();
+    }
 
     public void setGroupSize(Integer groupSize) {
         this.groupSize = groupSize;
@@ -133,40 +135,32 @@ public class Trip {
         this.totalSpent = totalSpent;
     }
 
-//    public List<Double> getTransactionHistory() {
-//        return transactionHistory;
-//    }
-//
-//    public void setTransactionHistory(List<Double> transactionHistory) {
-//        this.transactionHistory = transactionHistory;
-//    }
+    public Account getAdminAccount() {
+        return adminAccount;
+    }
 
-//    public Account getAdminAccount() {
-//        return adminAccount;
-//    }
-//
-//    public void setAdminAccount(Account adminAccount) {
-//        this.adminAccount = adminAccount;
-//    }
-//
-//    public Set<Account> getGuestsInvited() {
-//        return guestsInvited;
-//    }
-//
-//    public void setGuestsInvited(Set<Account> guestsInvited) {
-//        this.guestsInvited = guestsInvited;
-//    }
-//
-//
-//    public void inviteGuest(Account account) {
-//        guestsInvited.add(account);
-//    }
-//
-//    public void assignAdmin(Account account) {
-//        this.adminAccount = account;
-//    }
-//
-//    public void removeGuest(Account account) {
-//        guestsInvited.remove(account);
-//    }
+    public void setAdminAccount(Account adminAccount) {
+        this.adminAccount = adminAccount;
+    }
+
+    public Set<Account> getGuestsInvited() {
+        return guestsInvited;
+    }
+
+    public void setGuestsInvited(Set<Account> guestsInvited) {
+        this.guestsInvited = guestsInvited;
+    }
+
+
+    public void inviteGuest(Account account) {
+        guestsInvited.add(account);
+    }
+
+    public void assignAdmin(Account account) {
+        this.adminAccount = account;
+    }
+
+    public void removeGuest(Account account) {
+        guestsInvited.remove(account);
+    }
 }
