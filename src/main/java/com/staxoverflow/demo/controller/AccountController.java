@@ -65,6 +65,7 @@ public class AccountController {
                 HttpStatus.OK);
     }
 
+    
     @DeleteMapping(value = "/delete-account")
     public ResponseEntity<Account> delete() {
         return null;
