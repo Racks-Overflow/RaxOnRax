@@ -1,7 +1,12 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Account {
@@ -10,10 +15,11 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long staxId;
 
-    @ManyToMany
-    List<Trip> trips;
+    @JsonIgnore
+    @ManyToMany (mappedBy = "trip_flippers")
+    List<Trip> trips = new ArrayList<>();
 
-    @OneToOne
+    @OneToMany (mappedBy =  "active_trip_admin")
     private Trip adminTrip;
 
     private String username;
@@ -26,7 +32,7 @@ public class Account {
 
     private Boolean isGoing;
 
-    enum Role{ADMIN, GUEST};
+    public enum Role{ADMIN, GUEST};
 
 
 
