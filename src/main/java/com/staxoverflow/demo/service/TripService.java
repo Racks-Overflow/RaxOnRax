@@ -57,11 +57,6 @@ public class TripService {
         return repo.save(original);
     }
 
-    public Trip updateSize(Long id, Integer size) {
-        Trip original = read(id);
-        original.setGroupSize(size);
-        return repo.save(original);
-    }
 
     public Trip updateStatus(Long id, Boolean active) {
         Trip original = read(id);
@@ -82,7 +77,7 @@ public class TripService {
     public Trip withdrawFromGroupBalance(Long id, Double cost){
             Trip original = read(id);
             original.setGroupBalance(original.getGroupBalance() - cost);
-            original.setGroupBalance(original.getGroupBalance() + cost);
+            original.setTotalSpent(original.getGroupBalance() + cost);
             return repo.save(original);
     }
 
@@ -92,10 +87,6 @@ public class TripService {
         original.getGuestsInvited().stream()
                 .filter(Account::getGoing)
                 .forEach(acc -> depositToGroupBalance(id, acc, acc.getBalance()));
-        //Set<Account> going = original.getGuestsInvited().stream()
-        //.filter(Account::getGoing).collect(Collectors.toSet());
-
-        //Double total = going.stream().mapToDouble(Double::doubleValue).sum();
         return repo.save(original);
     }
 

@@ -73,6 +73,19 @@ public class TripController {
                 HttpStatus.OK);
     }
 
+    //these methods need exception handling for balances < 0
+    @PutMapping(value = "/{id}/pool-funds") //admin access only
+    public ResponseEntity<Trip> depositFundsFromAllAccounts(@PathVariable Long id){
+        return new ResponseEntity<>(tripService.sumAllAccountBalances(id), HttpStatus.ACCEPTED);
+
+    }
+
+    @PutMapping(value = "/{id}/pay") //admin access only
+    public ResponseEntity<Trip> payBill(@PathVariable Long id, @RequestBody Double cost){
+        return new ResponseEntity<>(tripService.withdrawFromGroupBalance(id, cost), HttpStatus.OK);
+
+    }
+
 
 
 //add an admin will be a read method
