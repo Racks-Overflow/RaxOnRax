@@ -47,10 +47,12 @@ public class TripController {
                 HttpStatus.OK);
     }
 
-    @PutMapping(value = "/{trip_id}/invite/{id}")
-    public ResponseEntity<Trip> addGuest(@PathVariable Long tripId, @PathVariable Long accountId){
+    @PutMapping(value = "/{trip_id}/invite/{accountId}")
+    public ResponseEntity<Trip> addGuest(
+            @PathVariable Long trip_id,
+            @PathVariable Long accountId){
         Account newGuest = accountService.read(accountId);
-        return new ResponseEntity<>(tripService.addGuest(tripId, newGuest), HttpStatus.OK);
+        return new ResponseEntity<>(tripService.addGuest(trip_id, newGuest), HttpStatus.OK);
     }
 
 //    @PutMapping(value = "/{trip_id}/invite/{id}")

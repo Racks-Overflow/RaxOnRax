@@ -84,7 +84,7 @@ public class TripService {
     public Trip addGuest(Long id, Account account){
         Trip original = read(id);
         original.inviteGuest(account);
-        return updateSize(id, original.getGroupSize());
+        return repo.save(original);
     } //revert this to repo.save if com.staxoverflow.demo.controller doesn't work
 
     public Trip assignAdmin(Long id, Account account){
