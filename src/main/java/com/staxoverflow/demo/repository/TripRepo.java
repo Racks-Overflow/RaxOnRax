@@ -1,6 +1,6 @@
-package repository;
+package com.staxoverflow.demo.repository;
 
-import domain.Trip;
+import com.staxoverflow.demo.domain.Trip;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

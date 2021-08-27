@@ -1,18 +1,17 @@
-package controller;
+package com.staxoverflow.demo.controller;
 
-import domain.Account;
-import domain.Trip;
+import com.staxoverflow.demo.domain.Account;
+import com.staxoverflow.demo.domain.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import service.AccountService;
-import service.TripService;
+import com.staxoverflow.demo.service.AccountService;
+import com.staxoverflow.demo.service.TripService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/tripcontroller")
 public class TripController {
 
@@ -48,23 +47,23 @@ public class TripController {
                 HttpStatus.OK);
     }
 
-    @PutMapping(value = "/{trip_id}/invite/{id}")
-    public ResponseEntity<Trip> addGuest(@PathVariable Long tripId, @PathVariable Long accountId){
-        Account newGuest = accountService.read(accountId);
-        return new ResponseEntity<>(tripService.addGuest(tripId, newGuest), HttpStatus.OK);
-    }
-
-    @PutMapping(value = "/{trip_id}/invite/{id}")
-    public ResponseEntity<Trip> assignAdmin(@PathVariable Long tripId, @PathVariable Long accountId){
-        Account newGuest = accountService.read(accountId);
-        return new ResponseEntity<>(tripService.addGuest(tripId, newGuest), HttpStatus.OK);
-    }
-
-    @PutMapping(value = "/{trip_id}/remove/{id}")
-    public ResponseEntity<Trip> removeGuest(@PathVariable Long tripId, @PathVariable Long accountId){
-        Account newGuest = accountService.read(accountId);
-        return new ResponseEntity<>(tripService.removeGuest(tripId, newGuest), HttpStatus.OK);
-    }
+//    @PutMapping(value = "/{trip_id}/invite/{id}")
+//    public ResponseEntity<Trip> addGuest(@PathVariable Long tripId, @PathVariable Long accountId){
+//        Account newGuest = accountService.read(accountId);
+//        return new ResponseEntity<>(tripService.addGuest(tripId, newGuest), HttpStatus.OK);
+//    }
+//
+//    @PutMapping(value = "/{trip_id}/invite/{id}")
+//    public ResponseEntity<Trip> assignAdmin(@PathVariable Long tripId, @PathVariable Long accountId){
+//        Account newGuest = accountService.read(accountId);
+//        return new ResponseEntity<>(tripService.addGuest(tripId, newGuest), HttpStatus.OK);
+//    }
+//
+//    @PutMapping(value = "/{trip_id}/remove/{id}")
+//    public ResponseEntity<Trip> removeGuest(@PathVariable Long tripId, @PathVariable Long accountId){
+//        Account newGuest = accountService.read(accountId);
+//        return new ResponseEntity<>(tripService.removeGuest(tripId, newGuest), HttpStatus.OK);
+//    }
 
 
 

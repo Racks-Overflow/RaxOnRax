@@ -1,14 +1,13 @@
-package controller;
+package com.staxoverflow.demo.controller;
 
 
-import domain.Account;
+import com.staxoverflow.demo.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.AccountService;
+import com.staxoverflow.demo.service.AccountService;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -18,8 +17,7 @@ public class AccountController {
     @Autowired
     private AccountService service;
 
-    // The 'update' controller has NOT been implemented
-    // The 'delete' controller has NOT been implemented
+     // The 'delete' com.staxoverflow.demo.controller has NOT been implemented
 
     @PostMapping(value = "/create")
     public ResponseEntity<Account> create(
@@ -44,6 +42,26 @@ public class AccountController {
     public ResponseEntity<Account> getAccountByUsername(
             @PathVariable String username) {
         return new ResponseEntity<>(service.readByUsername(username),
+                HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{id}/update-account-username/{username}")
+    public ResponseEntity<Account> updateUsername(
+            @PathVariable String username,
+            @PathVariable Long id
+    ) {
+        return new ResponseEntity<>(
+                service.updateUsername(id, username
+        ), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{id}/update-account-email/{email}")
+    public ResponseEntity<Account> updateEmail(
+            @PathVariable String email,
+            @PathVariable Long id
+    ) {
+        return new ResponseEntity<>(
+                service.updateEmail(id, email),
                 HttpStatus.OK);
     }
 
