@@ -13,6 +13,7 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Temporal(value =  TemporalType.DATE)
     private Date date;
 

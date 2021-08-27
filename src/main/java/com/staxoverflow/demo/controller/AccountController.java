@@ -39,7 +39,7 @@ public class AccountController {
     }
 
     @GetMapping(value = "/find-account-username/{username}")
-    public ResponseEntity<Account> getAccountByUsername(
+    public ResponseEntity<List<Account>> getAccountByUsername(
             @PathVariable String username) {
         return new ResponseEntity<>(service.readByUsername(username),
                 HttpStatus.OK);
@@ -65,6 +65,7 @@ public class AccountController {
                 HttpStatus.OK);
     }
 
+    
     @DeleteMapping(value = "/delete-account")
     public ResponseEntity<Account> delete() {
         return null;
