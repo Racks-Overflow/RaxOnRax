@@ -10,6 +10,7 @@ import com.staxoverflow.demo.service.AccountService;
 import com.staxoverflow.demo.service.TripService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/tripcontroller")
@@ -27,6 +28,7 @@ public class TripController {
         return new ResponseEntity<>(tripService.create(trip),
                 HttpStatus.CREATED);
     }
+
     @GetMapping(value = "/see-all")
     public ResponseEntity<List<Trip>> getAllTrips() {
         return new ResponseEntity<>(tripService.readAll(),
@@ -76,7 +78,13 @@ public class TripController {
     //these methods need exception handling for balances < 0
     @PutMapping(value = "/{id}/pool-funds") //admin access only
     public ResponseEntity<Trip> depositFundsFromAllAccounts(@PathVariable Long id){
-        return new ResponseEntity<>(tripService.sumAllAccountBalances(id), HttpStatus.ACCEPTED);
+        Trip original = tripService.read(id);
+        Set<Account> guests = original.getGuestsInvited();
+        Double sum = 0.0;
+        for (Account guest : guests) {
+            sum+= guest.getBalance();
+        }
+        return new ResponseEntity<>(tripService.poolFunds(id, sum), HttpStatus.OK);
 
     }
 
@@ -84,6 +92,11 @@ public class TripController {
     public ResponseEntity<Trip> payBill(@PathVariable Long id, @RequestBody Double cost){
         return new ResponseEntity<>(tripService.withdrawFromGroupBalance(id, cost), HttpStatus.OK);
 
+    }
+
+    @PutMapping(value = "/{id}/return-trip-funds")
+    public ResponseEntity<Trip> endTrip(@PathVariable Long id) {
+        return new ResponseEntity<>(tripService.distributeFunds(id), HttpStatus.OK);
     }
 
 

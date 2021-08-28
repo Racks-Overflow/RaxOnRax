@@ -14,14 +14,15 @@ public class Trip {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Temporal(value =  TemporalType.DATE)
+    @Temporal(value =  TemporalType.DATE) //google how to change format
     private Date date;
 
     private String destination;
     private Integer groupSize;
     private Double tripEstimate;
     private Double groupBalance;
-    private Double totalSpent;
+    private Double totalSpent ;
+    private Double estimatePerPerson;
     private Boolean isActive;
 //    private List<Double> transactionHistory;
     private Integer tripLength; //days
@@ -40,30 +41,24 @@ public class Trip {
     public Trip() {
     }
 
-    public Trip(Date date, String destination,
-                Integer groupSize, Integer tripLength, Double tripEstimate,
+
+    public Trip(Long id, Date date, String destination,
+                Integer groupSize, Double tripEstimate,
                 Double groupBalance, Double totalSpent,
-                Boolean isActive,
-                Account adminAccount, Set<Account> guestsInvited) {
+                Double estimatePerPerson, Boolean isActive,
+                Integer tripLength, Account adminAccount, Set<Account> guestsInvited) {
+        this.id = id;
         this.date = date;
         this.destination = destination;
         this.groupSize = groupSize;
-        this.tripLength =tripLength;
         this.tripEstimate = tripEstimate;
         this.groupBalance = groupBalance;
         this.totalSpent = totalSpent;
+        this.estimatePerPerson = estimatePerPerson;
         this.isActive = isActive;
+        this.tripLength = tripLength;
         this.adminAccount = adminAccount;
         this.guestsInvited = guestsInvited;
-    }
-
-    public Trip(Long id, String destination, Double tripEstimate, Account admin) {
-        this(null, destination,
-                1, 7,
-                tripEstimate, null,
-                0.00,  false,
-                admin, null);
-
     }
 
     public Long getId() {
@@ -124,6 +119,14 @@ public class Trip {
 
     public void setTripEstimate(Double tripEstimate) {
         this.tripEstimate = tripEstimate;
+    }
+
+    public Double getEstimatePerPerson() {
+        return estimatePerPerson;
+    }
+
+    public void setEstimatePerPerson(Double estimatePerPerson) {
+        this.estimatePerPerson = estimatePerPerson;
     }
 
     public void setGroupBalance(Double groupBalance) {
