@@ -11,6 +11,7 @@ import com.staxoverflow.demo.repository.TripRepo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -57,11 +58,6 @@ public class TripService {
         return repo.save(original);
     }
 
-    public Trip updateSize(Long id, Integer size) {
-        Trip original = read(id);
-        original.setGroupSize(size);
-        return repo.save(original);
-    }
 
     public Trip updateStatus(Long id, Boolean active) {
         Trip original = read(id);
@@ -69,17 +65,61 @@ public class TripService {
         return repo.save(original);
     }
 
-    public Trip updateGroupBalance(Long id, Double deposit) {
+    //update balance logic
+    public Trip depositToGroupBalance(Long id, Account account, Double deposit) {
         Trip original = read(id);
+        account.setBalance(account.getBalance() - deposit);
         original.setGroupBalance(original.getGroupBalance() + deposit);
+        return repo.save(original);
+
+    }
+    private Trip depositToAccount(Long id, Account account, Double deposit) {
+        Trip original = read(id);
+        account.setBalance(account.getBalance() + deposit);
+        original.setGroupBalance(original.getGroupBalance() - deposit);
         return repo.save(original);
     }
 
-    public Trip updateTotalSpent(Long id, Double expenses) {
+
+    //update balance logic
+    public Trip withdrawFromGroupBalance(Long id, Double cost){
+            Trip original = read(id);
+            original.setGroupBalance(original.getGroupBalance() - cost);
+            original.setTotalSpent(original.getGroupBalance() + cost);
+            return repo.save(original);
+    }
+
+    public Trip poolFunds(Long id, Double groupDeposit){
         Trip original = read(id);
-        original.setGroupBalance(original.getGroupBalance() + expenses);
+        original.setGroupBalance(groupDeposit);
         return repo.save(original);
     }
+
+
+    //thread errors
+    public Trip sumAllAccountBalances(Long id) {
+        Trip original = read(id);
+        Set<Account> guests = original.getGuestsInvited();
+        for (Account guest : guests) {
+            Double deposit = guest.getBalance();
+            depositToGroupBalance(id, guest, deposit);
+
+        }
+
+//        original.getGuestsInvited().stream()
+//                .filter(Account::getGoing)
+//                .forEach(acc -> depositToGroupBalance(id, acc, acc.getBalance()));
+        return repo.save(original);
+    }
+
+    public Trip distributeFunds(Long id){
+        Trip original = read(id);
+        Double moneyToReturn = original.getGroupBalance()/original.getGroupSize();
+        original.getGuestsInvited().stream().forEach(account -> depositToAccount(id, account, moneyToReturn));
+        return repo.save(original);
+    }
+
+
 
     public Trip addGuest(Long id, Account account){
         Trip original = read(id);
@@ -92,6 +132,7 @@ public class TripService {
         original.assignAdmin(account);
         return repo.save(original);
     }
+
 
     public Trip removeGuest(Long id, Account account) {
         Trip original = read(id);
