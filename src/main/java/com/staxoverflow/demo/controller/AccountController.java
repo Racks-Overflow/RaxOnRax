@@ -65,7 +65,23 @@ public class AccountController {
                 HttpStatus.OK);
     }
 
-    
+    @PutMapping(value = "/{id}/account-is-going")
+    public ResponseEntity<Account> updateIsGoing(
+            @PathVariable Long id
+    ) {
+        return new ResponseEntity<>(
+                service.updateIsGoing(id), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{id}/update-balance/{cost}")
+    public ResponseEntity<Account> updateBalance(
+            @PathVariable Long id,
+            @PathVariable double cost
+    ) {
+        return new ResponseEntity<>(service.updateBalance(id, cost),
+                HttpStatus.OK);
+    }
+
     @DeleteMapping(value = "/delete-account")
     public ResponseEntity<Account> delete() {
         return null;

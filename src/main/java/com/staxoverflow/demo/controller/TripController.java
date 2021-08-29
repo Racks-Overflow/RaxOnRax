@@ -77,21 +77,27 @@ public class TripController {
 
     //these methods need exception handling for balances < 0
     @PutMapping(value = "/{id}/pool-funds") //admin access only
-    public ResponseEntity<Trip> depositFundsFromAllAccounts(@PathVariable Long id){
+    public ResponseEntity<Trip> depositFundsFromAllAccounts(
+            @PathVariable Long id){
         Trip original = tripService.read(id);
         Set<Account> guests = original.getGuestsInvited();
         Double sum = 0.0;
         for (Account guest : guests) {
             sum += guest.getBalance();
+            accountService.updateBalance(guest.getStaxId(),
+                    -guest.getBalance());
         }
-        return new ResponseEntity<>(tripService.poolFunds(id, sum), HttpStatus.OK);
+        return new ResponseEntity<>(tripService.poolFunds(id, sum),
+                HttpStatus.OK);
 
     }
 
     @PutMapping(value = "/{id}/pay/{cost}") //admin access only
     public ResponseEntity<Trip> payBill(@PathVariable Long id, @PathVariable Double cost){
-        return new ResponseEntity<>(tripService.withdrawFromGroupBalance(id, cost), HttpStatus.OK);
-
+        return new ResponseEntity<>(
+                tripService
+                        .withdrawFromGroupBalance(id, cost),
+                HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}/return-trip-funds")
