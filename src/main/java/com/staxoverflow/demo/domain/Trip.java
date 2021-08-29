@@ -1,6 +1,8 @@
 package com.staxoverflow.demo.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -37,6 +39,9 @@ public class Trip {
     )
     private Set<Account> guestsInvited = new HashSet<>();
 
+    @JsonIgnore
+    @OneToMany (mappedBy = "activeTrip")
+    private Set<Account> attendees;
 
     public Trip() {
     }

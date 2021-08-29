@@ -13,9 +13,18 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long staxId;
 
-    @JsonIgnore
     @ManyToMany
+    @JoinTable (
+            joinColumns = @JoinColumn (name = "staxId"),
+            inverseJoinColumns = @JoinColumn (name = "trip_id")
+    )
     List<Trip> trips = new ArrayList<>();
+
+
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "active_trip_id", referencedColumnName = "id")
+    private Trip activeTrip;
 
 
     @OneToOne
@@ -24,7 +33,7 @@ public class Account {
     private String username;
     private String password;
     private String appEmail;
-    private double balance;
+    private Double balance;
 
     @OneToOne
     private BankAccount account;
@@ -40,7 +49,7 @@ public class Account {
                    String username,
                    String password,
                    String appEmail,
-                   double balance) {
+                   Double balance) {
         this.staxId = staxId;
         this.username = username;
         this.password = password;
@@ -139,11 +148,20 @@ public class Account {
         this.username = username;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
+
+    public Trip getActiveTrip() {
+        return activeTrip;
+    }
+
+    public void setActiveTrip(Trip active) {
+        this.activeTrip = active;
+    }
+
 }

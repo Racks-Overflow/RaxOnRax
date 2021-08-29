@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TripRepo extends CrudRepository <Trip, Long> {
+    //@Query (SELECT* FROM JOIN )
+
 }
