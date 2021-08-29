@@ -1,6 +1,8 @@
 package com.staxoverflow.demo.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -13,13 +15,16 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Temporal(value = TemporalType.DATE)
+
+    @Temporal(value =  TemporalType.DATE) //google how to change format
     private Date date;
+
     private String destination;
     private Integer groupSize;
     private Double tripEstimate;
     private Double groupBalance;
-    private Double totalSpent;
+    private Double totalSpent ;
+    private Double estimatePerPerson;
     private Boolean isActive;
 //    private List<Double> transactionHistory;
     private Integer tripLength; //days
@@ -34,34 +39,31 @@ public class Trip {
     )
     private Set<Account> guestsInvited = new HashSet<>();
 
+    @JsonIgnore
+    @OneToMany (mappedBy = "activeTrip")
+    private Set<Account> attendees;
 
     public Trip() {
     }
 
-    public Trip(Date date, String destination,
-                Integer groupSize, Integer tripLength, Double tripEstimate,
+
+    public Trip(Long id, Date date, String destination,
+                Integer groupSize, Double tripEstimate,
                 Double groupBalance, Double totalSpent,
-                Boolean isActive,
-                Account adminAccount, Set<Account> guestsInvited) {
+                Double estimatePerPerson, Boolean isActive,
+                Integer tripLength, Account adminAccount, Set<Account> guestsInvited) {
+        this.id = id;
         this.date = date;
         this.destination = destination;
         this.groupSize = groupSize;
-        this.tripLength =tripLength;
         this.tripEstimate = tripEstimate;
         this.groupBalance = groupBalance;
         this.totalSpent = totalSpent;
+        this.estimatePerPerson = estimatePerPerson;
         this.isActive = isActive;
+        this.tripLength = tripLength;
         this.adminAccount = adminAccount;
         this.guestsInvited = guestsInvited;
-    }
-
-    public Trip(Long id, String destination, Double tripEstimate, Account admin) {
-        this(null, destination,
-                1, 7,
-                tripEstimate, null,
-                0.00,  false,
-                admin, null);
-
     }
 
     public Long getId() {
@@ -124,6 +126,14 @@ public class Trip {
         this.tripEstimate = tripEstimate;
     }
 
+    public Double getEstimatePerPerson() {
+        return estimatePerPerson;
+    }
+
+    public void setEstimatePerPerson(Double estimatePerPerson) {
+        this.estimatePerPerson = estimatePerPerson;
+    }
+
     public void setGroupBalance(Double groupBalance) {
         this.groupBalance = groupBalance;
     }
@@ -158,7 +168,7 @@ public class Trip {
     }
 
     public void assignAdmin(Account account) {
-        this.adminAccount = account;
+        setAdminAccount(account);
     }
 
     public void removeGuest(Account account) {
