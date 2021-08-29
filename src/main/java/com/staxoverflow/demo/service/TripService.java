@@ -114,11 +114,7 @@ public class TripService {
 
     public Trip distributeFunds(Long id){
         Trip original = read(id);
-        Double moneyToReturn = original.getGroupBalance()/original.getGroupSize();
-        original.getGuestsInvited()
-                .stream()
-                .forEach(account ->
-                        depositToAccount(id, account, moneyToReturn));
+        original.setGroupBalance(0.00);
         return repo.save(original);
     }
 

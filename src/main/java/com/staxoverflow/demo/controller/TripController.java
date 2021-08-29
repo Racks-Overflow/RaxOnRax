@@ -98,14 +98,17 @@ public class TripController {
                 tripService
                         .withdrawFromGroupBalance(id, cost),
                 HttpStatus.OK);
-
     }
 
     @PutMapping(value = "/{id}/return-trip-funds")
     public ResponseEntity<Trip> endTrip(@PathVariable Long id) {
-        return new ResponseEntity<>(
-                tripService.distributeFunds(id),
-                HttpStatus.OK);
+        Trip original = tripService.read(id);
+        Double moneyToReturn = original.getGroupBalance()/original.getGroupSize();
+        Set<Account> guests = original.getGuestsInvited();
+        for (Account guest : guests) {
+            accountService.updateBalance(guest.getStaxId(), moneyToReturn);
+        }
+        return new ResponseEntity<>(tripService.distributeFunds(id), HttpStatus.OK);
     }
 
 
