@@ -22,6 +22,10 @@ public class AccountService {
       * exists with the 'Account' s respective fields
     */
 
+    /*
+        * implement bank account connection between accounts and Bank Accounts
+     */
+
 //    public Boolean checkDatabaseForExistingUsername(String userInput) {
 //        return readByUsername(userInput) != null; //There's an account with that field
 //    }
@@ -98,6 +102,20 @@ public class AccountService {
     public Account updateIsGoing(Long id) {
         Account ogAcc = read(id);
         ogAcc.setGoing(true);
+        repo.save(ogAcc);
+        return ogAcc;
+    }
+
+    public Account updateIsNotGoing(Long id) {
+        Account ogAcc = read(id);
+        ogAcc.setGoing(false);
+        repo.save(ogAcc);
+        return ogAcc;
+    }
+
+    public Account updateIsGoingButTripEnded(Long id) {
+        Account ogAcc = read(id);
+        ogAcc.setGoing(null);
         repo.save(ogAcc);
         return ogAcc;
     }

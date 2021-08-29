@@ -110,6 +110,7 @@ public class TripController {
         Set<Account> guests = original.getGuestsInvited();
         for (Account guest : guests) {
             accountService.updateBalance(guest.getStaxId(), moneyToReturn);
+            accountService.updateIsGoingButTripEnded(guest.getStaxId());
         }
         return new ResponseEntity<>(tripService.distributeFunds(id), HttpStatus.OK);
     }
