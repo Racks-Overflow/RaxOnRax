@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table (name = "account", uniqueConstraints = {
-        @UniqueConstraint(name = "emailConstraint", columnNames = "appEmail")
-})
 public class Account implements Serializable {
 
     @Id
@@ -35,8 +32,6 @@ public class Account implements Serializable {
 
     private String username;
     private String password;
-
-    @Column (name = "appEmail", unique = true)
     private String appEmail;
     private Double balance;
 

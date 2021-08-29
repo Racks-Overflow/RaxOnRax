@@ -79,6 +79,7 @@ public class TripService {
     public Trip poolFunds(Long id, Double groupDeposit){
         Trip original = read(id);
         original.setGroupBalance(groupDeposit);
+        original.setActive(true);
         return repo.save(original);
     }
 
