@@ -3,11 +3,12 @@ package com.staxoverflow.demo.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Account {
+public class Account implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -164,4 +165,19 @@ public class Account {
         this.activeTrip = active;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "staxId=" + staxId +
+                ", trips=" + trips +
+                ", activeTrip=" + activeTrip +
+                ", adminTrip=" + adminTrip +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", appEmail='" + appEmail + '\'' +
+                ", balance=" + balance +
+                ", account=" + account +
+                ", isGoing=" + isGoing +
+                '}';
+    }
 }
