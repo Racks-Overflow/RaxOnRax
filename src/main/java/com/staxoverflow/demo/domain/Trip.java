@@ -4,13 +4,14 @@ package com.staxoverflow.demo.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Trip {
+public class Trip implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -173,5 +174,24 @@ public class Trip {
 
     public void removeGuest(Account account) {
         guestsInvited.remove(account);
+    }
+
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "id=" + id +
+                ", date=" + date +
+                ", destination='" + destination + '\'' +
+                ", groupSize=" + groupSize +
+                ", tripEstimate=" + tripEstimate +
+                ", groupBalance=" + groupBalance +
+                ", totalSpent=" + totalSpent +
+                ", estimatePerPerson=" + estimatePerPerson +
+                ", isActive=" + isActive +
+                ", tripLength=" + tripLength +
+                ", adminAccount=" + adminAccount +
+                ", guestsInvited=" + guestsInvited +
+                ", attendees=" + attendees +
+                '}';
     }
 }

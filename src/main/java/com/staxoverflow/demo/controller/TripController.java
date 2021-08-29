@@ -88,14 +88,20 @@ public class TripController {
 
     }
 
-    @PutMapping(value = "/{id}/pay") //admin access only
-    public ResponseEntity<Trip> payBill(@PathVariable Long id, @RequestBody Double cost){
+    @PutMapping(value = "/{id}/pay/{cost}") //admin access only
+    public ResponseEntity<Trip> payBill(@PathVariable Long id, @PathVariable Double cost){
         return new ResponseEntity<>(tripService.withdrawFromGroupBalance(id, cost), HttpStatus.OK);
 
     }
 
     @PutMapping(value = "/{id}/return-trip-funds")
     public ResponseEntity<Trip> endTrip(@PathVariable Long id) {
+        Trip original = tripService.read(id);
+        Double moneyToReturn = original.getGroupBalance()/original.getGroupSize();
+        Set<Account> guests = original.getGuestsInvited();
+        for (Account guest : guests) {
+            accountService.updateBalance(guest.getStaxId(), moneyToReturn);
+        }
         return new ResponseEntity<>(tripService.distributeFunds(id), HttpStatus.OK);
     }
 
