@@ -103,11 +103,6 @@ public class AccountService {
         return ogAcc;
     }
 
-    public Account updateActiveTrip(Long id, Trip trip) {
-        Account original = read(id);
-        original.setActiveTrip(trip);
-        return repo.save(original);
-    }
 
     public Account delete(Account account) {
         if (account.getBalance() > 0.0 || account.getBalance() < 0.0) {
