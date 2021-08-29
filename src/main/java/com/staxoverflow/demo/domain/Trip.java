@@ -40,6 +40,7 @@ public class Trip implements Serializable {
     )
     private Set<Account> guestsInvited = new HashSet<>();
 
+
     @JsonIgnore
     @OneToMany (mappedBy = "activeTrip")
     private Set<Account> attendees;

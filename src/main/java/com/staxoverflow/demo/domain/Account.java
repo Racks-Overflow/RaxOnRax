@@ -22,7 +22,6 @@ public class Account implements Serializable {
     List<Trip> trips = new ArrayList<>();
 
 
-
     @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "active_trip_id", referencedColumnName = "id")
     private Trip activeTrip;

@@ -2,6 +2,7 @@ package com.staxoverflow.demo.service;
 
 
 import com.staxoverflow.demo.domain.Account;
+import com.staxoverflow.demo.domain.Trip;
 import com.staxoverflow.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ public class AccountService {
 
     @Autowired
     private AccountRepo repo;
+
+
 
     /* will need to include com.staxoverflow.demo.exception handling upon
       * creating an account if an account already
@@ -106,6 +109,7 @@ public class AccountService {
         return ogAcc;
     }
 
+
     public Account updateIsNotGoing(Long id) {
         Account ogAcc = read(id);
         ogAcc.setGoing(false);
@@ -119,6 +123,7 @@ public class AccountService {
         repo.save(ogAcc);
         return ogAcc;
     }
+
 
     public Account delete(Account account) {
         if (account.getBalance() > 0.0 || account.getBalance() < 0.0) {
