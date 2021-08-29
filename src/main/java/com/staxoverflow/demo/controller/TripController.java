@@ -82,7 +82,7 @@ public class TripController {
         Set<Account> guests = original.getGuestsInvited();
         Double sum = 0.0;
         for (Account guest : guests) {
-            sum+= guest.getBalance();
+            sum += guest.getBalance();
         }
         return new ResponseEntity<>(tripService.poolFunds(id, sum), HttpStatus.OK);
 

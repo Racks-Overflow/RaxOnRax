@@ -59,7 +59,7 @@ public class TripService {
     }
 
 
-    public Trip updateStatus(Long id, Boolean active) {
+    public Trip activate(Long id, Boolean active) {
         Trip original = read(id);
         original.setActive(active);
         return repo.save(original);
@@ -85,7 +85,7 @@ public class TripService {
     public Trip withdrawFromGroupBalance(Long id, Double cost){
             Trip original = read(id);
             original.setGroupBalance(original.getGroupBalance() - cost);
-            original.setTotalSpent(original.getGroupBalance() + cost);
+            //original.setTotalSpent(original.getGroupBalance() + cost);
             return repo.save(original);
     }
 
