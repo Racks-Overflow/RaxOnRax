@@ -2,6 +2,7 @@ package com.staxoverflow.demo.service;
 
 
 import com.staxoverflow.demo.domain.Account;
+import com.staxoverflow.demo.domain.Trip;
 import com.staxoverflow.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -100,6 +101,12 @@ public class AccountService {
         ogAcc.setGoing(true);
         repo.save(ogAcc);
         return ogAcc;
+    }
+
+    public Account updateActiveTrip(Long id, Trip trip) {
+        Account original = read(id);
+        original.setActiveTrip(trip);
+        return repo.save(original);
     }
 
     public Account delete(Account account) {

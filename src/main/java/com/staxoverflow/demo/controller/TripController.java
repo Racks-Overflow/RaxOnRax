@@ -75,6 +75,12 @@ public class TripController {
                 HttpStatus.OK);
     }
 
+    @PutMapping(value = "/activate-trip/{id}")
+    public ResponseEntity<Trip> activateTrip(
+            @PathVariable Long id){
+        return new ResponseEntity<>(tripService.activate(id, true), HttpStatus.OK);
+    }
+
     //these methods need exception handling for balances < 0
     @PutMapping(value = "/{id}/pool-funds") //admin access only
     public ResponseEntity<Trip> depositFundsFromAllAccounts(

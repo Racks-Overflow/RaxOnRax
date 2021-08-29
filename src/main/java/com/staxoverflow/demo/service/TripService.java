@@ -4,6 +4,7 @@ package com.staxoverflow.demo.service;
 import com.staxoverflow.demo.domain.Account;
 import com.staxoverflow.demo.domain.Trip;
 import com.staxoverflow.demo.exception.ResourceNotFoundException;
+import com.staxoverflow.demo.repository.AccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.staxoverflow.demo.repository.TripRepo;
@@ -19,6 +20,7 @@ public class TripService {
 
     @Autowired
     private TripRepo repo;
+
 
     //start trip button-front end
     //create newAdminAccount
@@ -65,27 +67,12 @@ public class TripService {
         return repo.save(original);
     }
 
-    //update balance logic
-    public Trip depositToGroupBalance(Long id, Account account, Double deposit) {
-        Trip original = read(id);
-        account.setBalance(account.getBalance() - deposit);
-        original.setGroupBalance(original.getGroupBalance() + deposit);
-        return repo.save(original);
-
-    }
-    private Trip depositToAccount(Long id, Account account, Double deposit) {
-        Trip original = read(id);
-        account.setBalance(account.getBalance() + deposit);
-        original.setGroupBalance(original.getGroupBalance() - deposit);
-        return repo.save(original);
-    }
-
 
     //update balance logic
     public Trip withdrawFromGroupBalance(Long id, Double cost){
             Trip original = read(id);
             original.setGroupBalance(original.getGroupBalance() - cost);
-            //original.setTotalSpent(original.getGroupBalance() + cost);
+            original.setTotalSpent(original.getGroupBalance() + cost);
             return repo.save(original);
     }
 
@@ -102,10 +89,7 @@ public class TripService {
         Set<Account> guests = original.getGuestsInvited();
         for (Account guest : guests) {
             Double deposit = guest.getBalance();
-            depositToGroupBalance(id, guest, deposit);
-
         }
-
 //        original.getGuestsInvited().stream()
 //                .filter(Account::getGoing)
 //                .forEach(acc -> depositToGroupBalance(id, acc, acc.getBalance()));
