@@ -29,9 +29,7 @@ public class TripService {
     }
 
     public Trip read(Long id) {
-       return  repo.findById(id)
-               .orElseThrow(()-> new ResourceNotFoundException("There is no trip with that id"));
-
+       return  repo.findById(id).get();
     }
 
     public List<Trip> readAll() {
