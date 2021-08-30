@@ -40,28 +40,23 @@ public class AccountService implements Validator {
         return readByEmail(userInput) != null; //There's an account with that field
     }
 
-//    public Account create(Account account) {
-//        if (checkDatabaseForExistingEmail(account.getAppEmail()) ||
-//                checkDatabaseForExistingUsername(account.getUsername())) {
-//            throw new ResourceNotFoundException("An account already exists with that information");
-//        }
-//        return repo.save(account);
-//    }
-    public boolean validateEmail(Account account) {
-        return validateEmail(account.getAppEmail());
-    }
-
-    public boolean validateUsername(Account account) {
-        return validateUsername(account.getUsername());
-    }
-
-    public Account create(Account account) {
-    //    if(validateEmail(account) || validateUsername(account.getUsername()))
+    public Account create(Account account) throws Exception{
+        if(checkDatabaseForExistingEmail(account.getAppEmail())) {
+            throw new Exception("That email is already taken");
+        } else if (checkDatabaseForExistingUsername(account.getUsername())) {
+            throw new Exception("That username is already taken");
+        } else if (validateEmail(account.getAppEmail())) {
+            throw new Exception("Your email does not meet our criteria");
+        } else if (validateUsername(account.getUsername())) {
+            throw new Exception("Your username does not meet our criteria");
+        } else {
             return repo.save(account);
+        }
     }
 
     public Account read(Long id) {
-        return repo.findById(id).get();
+        return repo.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+                "That account doest exist"));
     }
 
     public List<Account> readByUsername(String username) {

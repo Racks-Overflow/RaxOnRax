@@ -22,9 +22,13 @@ public class AccountController {
 
     @PostMapping(value = "/create")
     public ResponseEntity<Account> create(
-            @RequestBody Account account) {
-        return new ResponseEntity<>(service.create(account),
-                HttpStatus.CREATED);
+            @RequestBody Account account) throws Exception {
+        try {
+            return new ResponseEntity<>(service.create(account),
+                    HttpStatus.CREATED);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
     @GetMapping(value = "/account-list")
     public ResponseEntity<List<Account>> getAllAccountList() {

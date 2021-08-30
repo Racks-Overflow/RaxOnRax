@@ -40,14 +40,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     // Specifically for 404 NOT_FOUND errors (in stack trace)
     @ExceptionHandler(ResourceNotFoundException.class)
     protected ResponseEntity<Object> handleEntityNotFound(
-            EntityNotFoundException err) {
+            ResourceNotFoundException err) {
         ApiError apiError = new ApiError(HttpStatus.NOT_FOUND);
         apiError.setMessage(err.getMessage());
         return buildResponseEntity(apiError);
     }
 
     // This one will probably not work --> it'll return a BAD_REQUEST for any error not caught
-    @ExceptionHandler()
+
     protected ResponseEntity<Object> handleEntityBadRequest(
             EntityExistsException err) {
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST);
@@ -55,12 +55,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
-    // Specifically for MethodArgumentNotValidException type errors (in stack trace)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseBody
-    protected ResponseEntity<MethodArgumentNotValidException> handleMethodArgNotValid(
-            MethodArgumentNotValidException err) {
-        return new ResponseEntity<MethodArgumentNotValidException>(
-                err, HttpStatus.BAD_REQUEST);
+    @ExceptionHandler(Exception.class)
+    protected ResponseEntity<Object> internalServiceError(
+            Exception err) {
+        ApiError apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR);
+        apiError.setMessage(err.getMessage());
+        return buildResponseEntity(apiError);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    protected ResponseEntity<Object> illegalArgumentException(
+            IllegalArgumentException err) {
+        ApiError apiError = new ApiError(HttpStatus.valueOf("Illegal Argument Exception"));
+        apiError.setMessage(err.getMessage());
+        return buildResponseEntity(apiError);
     }
 }
