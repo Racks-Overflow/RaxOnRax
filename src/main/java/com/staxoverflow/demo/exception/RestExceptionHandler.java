@@ -37,6 +37,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
+    // Specifically for 404 NOT_FOUND errors (in stack trace)
     @ExceptionHandler(ResourceNotFoundException.class)
     protected ResponseEntity<Object> handleEntityNotFound(
             EntityNotFoundException err) {
@@ -45,6 +46,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+    // This one will probably not work --> it'll return a BAD_REQUEST for any error not caught
     @ExceptionHandler()
     protected ResponseEntity<Object> handleEntityBadRequest(
             EntityExistsException err) {
@@ -52,6 +54,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         apiError.setMessage(err.getMessage());
         return buildResponseEntity(apiError);
     }
+
+    // Specifically for MethodArgumentNotValidException type errors (in stack trace)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     protected ResponseEntity<MethodArgumentNotValidException> handleMethodArgNotValid(
