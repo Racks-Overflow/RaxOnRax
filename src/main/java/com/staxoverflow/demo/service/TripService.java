@@ -100,6 +100,7 @@ public class TripService {
     public Trip distributeFunds(Long id){
         Trip original = read(id);
         original.setGroupBalance(0.00);
+        original.setActive(false);
         return repo.save(original);
     }
 

@@ -1,6 +1,7 @@
 package com.staxoverflow.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,8 +31,12 @@ public class Account implements Serializable {
     @OneToOne
     private Trip adminTrip;
 
+    @Value("${username}")
     private String username;
+
+    @Value("${password}")
     private String password;
+
     private String appEmail;
     private Double balance;
 
