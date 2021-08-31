@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -46,11 +47,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
-    // This one will probably not work --> it'll return a BAD_REQUEST for any error not caught
-
+    @ExceptionHandler(HttpServerErrorException.InternalServerError.class)
     protected ResponseEntity<Object> handleEntityBadRequest(
-            EntityExistsException err) {
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST);
+            HttpServerErrorException.InternalServerError err) {
+        ApiError apiError = new ApiError(HttpStatus.SERVICE_UNAVAILABLE);
         apiError.setMessage(err.getMessage());
         return buildResponseEntity(apiError);
     }
@@ -66,7 +66,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     protected ResponseEntity<Object> illegalArgumentException(
             IllegalArgumentException err) {
-        ApiError apiError = new ApiError(HttpStatus.valueOf("Illegal Argument Exception"));
+        ApiError apiError = new ApiError(HttpStatus.SERVICE_UNAVAILABLE);
         apiError.setMessage(err.getMessage());
         return buildResponseEntity(apiError);
     }

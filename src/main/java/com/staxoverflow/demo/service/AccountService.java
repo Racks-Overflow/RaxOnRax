@@ -32,6 +32,9 @@ public class AccountService implements Validator {
         * implement bank account connection between accounts and Bank Accounts
      */
 
+    // must refine next 2 methods -- I receive 'index 0 : size 0' when trying to throw an exception
+    // currently validation works for email and username -- must check DB for existingUser / existingEmail
+
     public Boolean checkDatabaseForExistingUsername(String userInput) {
         return readByUsername(userInput) != null; //There's an account with that field
     }
@@ -41,13 +44,9 @@ public class AccountService implements Validator {
     }
 
     public Account create(Account account) throws Exception{
-        if(checkDatabaseForExistingEmail(account.getAppEmail())) {
-            throw new Exception("That email is already taken");
-        } else if (checkDatabaseForExistingUsername(account.getUsername())) {
-            throw new Exception("That username is already taken");
-        } else if (validateEmail(account.getAppEmail())) {
+        if (!validateEmail(account.getAppEmail())) {
             throw new Exception("Your email does not meet our criteria");
-        } else if (validateUsername(account.getUsername())) {
+        } else if (!validateUsername(account.getUsername())) {
             throw new Exception("Your username does not meet our criteria");
         } else {
             return repo.save(account);
