@@ -58,7 +58,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<Object> internalServiceError(
             Exception err) {
-        ApiError apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR);
+        ApiError apiError = new ApiError(HttpStatus.I_AM_A_TEAPOT);
         apiError.setMessage(err.getMessage());
         return buildResponseEntity(apiError);
     }
@@ -66,7 +66,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     protected ResponseEntity<Object> illegalArgumentException(
             IllegalArgumentException err) {
-        ApiError apiError = new ApiError(HttpStatus.SERVICE_UNAVAILABLE);
+        ApiError apiError = new ApiError(HttpStatus.CONFLICT);
         apiError.setMessage(err.getMessage());
         return buildResponseEntity(apiError);
     }
