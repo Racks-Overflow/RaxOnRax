@@ -2,6 +2,7 @@ package com.staxoverflow.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,7 +27,6 @@ public class Account implements Serializable {
     @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "active_trip_id", referencedColumnName = "id")
     private Trip activeTrip;
-
 
     @OneToOne
     private Trip adminTrip;

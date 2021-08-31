@@ -29,9 +29,7 @@ public class TripService {
     }
 
     public Trip read(Long id) {
-       return  repo.findById(id)
-               .orElseThrow(()-> new ResourceNotFoundException("There is no trip with that id"));
-
+       return  repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("That trip does not currently exist"));
     }
 
     public List<Trip> readAll() {
@@ -70,10 +68,14 @@ public class TripService {
 
     //update balance logic
     public Trip withdrawFromGroupBalance(Long id, Double cost){
-            Trip original = read(id);
+        Trip original = read(id);
+        if (original.getGroupBalance() < cost) {
+            throw new IllegalArgumentException("You do not have enough funds to complete that action");
+        } else {
             original.setGroupBalance(original.getGroupBalance() - cost);
             original.setTotalSpent(original.getGroupBalance() + cost);
             return repo.save(original);
+        }
     }
 
     public Trip poolFunds(Long id, Double groupDeposit){
