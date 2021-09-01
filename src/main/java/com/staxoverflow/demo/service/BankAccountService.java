@@ -31,4 +31,21 @@ public class BankAccountService {
            return repo.findById(accountNum).orElseThrow(() -> new ResourceNotFoundException(
                    "That bank account doesn't exist"));
     }
+
+    /* I left the 'update account' (the field that links
+        the AppAccount and the BankAccount) intentionally
+        left out -- a user should have NO access
+        rewriting the OneToOne
+     */
+    public BankAccount update(Long accountNum,
+                              BankAccount newInfo) {
+        BankAccount inDb = readByAccountNum(accountNum);
+        inDb.setAccountNum(newInfo.getAccountNum());
+        inDb.setFirstName(newInfo.getFirstName());
+        inDb.setLastName(newInfo.getLastName());
+        inDb.setPhoneNumber(newInfo.getPhoneNumber());
+        inDb.setAddress(newInfo.getAddress());
+        inDb = repo.save(inDb);
+        return inDb;
+    }
 }

@@ -1,35 +1,28 @@
 package com.staxoverflow.demo.domain;
 
-import org.hibernate.annotations.BatchSize;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
 public class BankAccount {
     @Id
     @Column(name = "bankAccountNumber")
-    @Size()
+    @Size(min = 8, max = 12)
     private Long accountNum;
     private String firstName;
     private String lastName;
     @Column(name = "phoneNumber", length = 10)
-    private String phoneNumber; // preset length of phoneNum in SQL table
+    private Integer phoneNumber;
+    @Embedded
     private Address address;
-
 
     @OneToOne
     Account account;
 
-    public BankAccount() { }
-
     public BankAccount(Long accountNum,
                        String firstName,
                        String lastName,
-                       String phoneNumber,
+                       Integer phoneNumber,
                        Address address,
                        Account account) {
         this.accountNum = accountNum;
@@ -40,13 +33,14 @@ public class BankAccount {
         this.account = account;
     }
 
-    public BankAccount(Long accountNum) {
+    public BankAccount(Long accountNum, Account account) {
         this(accountNum, "First Name",
                  "Last Name",
                  null,
                 null, null);
 
     }
+
 
     public Long getAccountNum() {
         return accountNum;
@@ -72,11 +66,11 @@ public class BankAccount {
         this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -92,7 +86,4 @@ public class BankAccount {
         return account;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 }

@@ -52,6 +52,7 @@ public class AccountService implements Validator {
         return false; //username not in db
     }
 
+    // need to actually use this -- more research req.
     public Account loginAccount(String username, String password) {
         Account inDb = readByUsername(username);
         if (inDb.getPassword().equals(password)) {
@@ -69,6 +70,8 @@ public class AccountService implements Validator {
             throw new Exception("Your email does not meet our criteria");
         } else if (!validateUsername(account.getUsername())) {
             throw new Exception("Your username does not meet our criteria");
+        } else if (!validatePassword(account.getPassword())) {
+            throw new Exception("You password does NOT meet the requirements");
         } else {
             return repo.save(account);
         }

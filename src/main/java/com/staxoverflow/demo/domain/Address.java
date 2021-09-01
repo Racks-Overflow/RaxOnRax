@@ -1,17 +1,21 @@
 package com.staxoverflow.demo.domain;
 
 
+import javax.persistence.Embeddable;
 import javax.validation.constraints.Size;
-
+@Embeddable
 public class Address {
 
     private String number;
     private String street;
     private String city;
-    
-    private String zipcode;
+    @Size(min = 5, max = 5)
+    private int zipcode;
 
-    public Address(String number, String street, String city, String zipcode) {
+    public Address(String number,
+                   String street,
+                   String city,
+                   int zipcode) {
         this.number = number;
         this.street = street;
         this.city = city;
@@ -42,11 +46,11 @@ public class Address {
         this.city = city;
     }
 
-    public String getZipcode() {
+    public int getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
 }
