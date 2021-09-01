@@ -10,12 +10,15 @@ public class Address {
     private String street;
     private String city;
     @Size(min = 5, max = 5)
-    private int zipcode;
+    private Integer zipcode;
+
+    public Address() {
+    }
 
     public Address(String number,
                    String street,
                    String city,
-                   int zipcode) {
+                   Integer zipcode) {
         this.number = number;
         this.street = street;
         this.city = city;
@@ -46,11 +49,11 @@ public class Address {
         this.city = city;
     }
 
-    public int getZipcode() {
+    public Integer getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(Integer zipcode) {
         this.zipcode = zipcode;
     }
 }

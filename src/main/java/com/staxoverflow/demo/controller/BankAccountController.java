@@ -40,5 +40,18 @@ public class BankAccountController {
                 HttpStatus.OK);
     }
 
+    @PutMapping(value = "/update/{id}")
+    public ResponseEntity<BankAccount> update(
+            @PathVariable Long id,
+            @RequestBody BankAccount account) {
+        return new ResponseEntity<>(service.update(id, account),
+                HttpStatus.OK);
+    }
 
+    @DeleteMapping(value = "/delete-bank-acc")
+    public ResponseEntity<BankAccount> delete(
+            @PathVariable Long id) {
+        return new ResponseEntity<>(service.delete(id),
+                HttpStatus.ACCEPTED);
+    }
 }
