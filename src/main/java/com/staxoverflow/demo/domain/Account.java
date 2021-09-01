@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,36 +17,32 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long staxId;
 
+    private String username;
+    private String password;
+    private String appEmail;
+    private Double balance;
+    private Boolean isGoing;
+
+    public enum Role {
+        ADMIN,
+        GUEST};
+
+    @OneToOne
+    private Trip adminTrip;
+
+    @OneToOne
+    private BankAccount account;
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "active_trip_id", referencedColumnName = "id")
+    private Trip activeTrip;
+
     @ManyToMany
     @JoinTable (
             joinColumns = @JoinColumn (name = "staxId"),
             inverseJoinColumns = @JoinColumn (name = "trip_id")
     )
     List<Trip> trips = new ArrayList<>();
-
-
-    @ManyToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "active_trip_id", referencedColumnName = "id")
-    private Trip activeTrip;
-
-    @OneToOne
-    private Trip adminTrip;
-
-    @Value("${username}")
-    private String username;
-
-    @Value("${password}")
-    private String password;
-
-    private String appEmail;
-    private Double balance;
-
-    @OneToOne
-    private BankAccount account;
-
-    private Boolean isGoing;
-
-    public enum Role{ADMIN, GUEST};
 
     public Account() {
     }
