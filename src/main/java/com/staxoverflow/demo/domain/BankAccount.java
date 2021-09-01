@@ -1,37 +1,49 @@
 package com.staxoverflow.demo.domain;
 
+import org.hibernate.annotations.BatchSize;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class BankAccount {
     @Id
+    @Column(name = "bankAccountNumber")
+    @Size()
     private Long accountNum;
-    private String govtName;
-    private String email;
+    private String firstName;
+    private String lastName;
+    @Column(name = "phoneNumber", length = 10)
     private String phoneNumber; // preset length of phoneNum in SQL table
-    private String address;
+    private Address address;
+
 
     @OneToOne
     Account account;
 
     public BankAccount() { }
 
-    public BankAccount(Long accountNum, String govtName,
-                       String email, String phoneNumber,
-                       String address, Account account) {
+    public BankAccount(Long accountNum,
+                       String firstName,
+                       String lastName,
+                       String phoneNumber,
+                       Address address,
+                       Account account) {
         this.accountNum = accountNum;
-        this.govtName = govtName;
-        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.account = account;
     }
 
     public BankAccount(Long accountNum) {
-        this(accountNum, "User",
-                null, null,
+        this(accountNum, "First Name",
+                 "Last Name",
+                 null,
                 null, null);
 
     }
@@ -44,20 +56,20 @@ public class BankAccount {
         this.accountNum = accountNum;
     }
 
-    public String getGovtName() {
-        return govtName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setGovtName(String govtName) {
-        this.govtName = govtName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {
@@ -68,11 +80,11 @@ public class BankAccount {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
