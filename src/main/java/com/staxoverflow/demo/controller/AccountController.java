@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.staxoverflow.demo.service.AccountService;
 
+import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -30,6 +31,16 @@ public class AccountController {
             throw new Exception(e.getMessage());
         }
     }
+
+    @GetMapping(value = "/account-login/{username}/{password}")
+    public ResponseEntity<Account> login(
+            @PathVariable String username,
+            @PathVariable String password
+    ) {
+        return new ResponseEntity<>(service.loginAccount(username, password),
+                HttpStatus.ACCEPTED);
+    }
+
     @GetMapping(value = "/account-list")
     public ResponseEntity<List<Account>> getAllAccountList() {
         return new ResponseEntity<>(service.readAll(),
