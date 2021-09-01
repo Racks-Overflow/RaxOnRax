@@ -100,6 +100,7 @@ public class TripService {
     public Trip distributeFunds(Long id){
         Trip original = read(id);
         original.setGroupBalance(0.00);
+        original.setActive(false);
         return repo.save(original);
     }
 
@@ -140,7 +141,7 @@ public class TripService {
 
     public List<Trip> findByLocation(String destination) {
       return readAll()
-               .stream().filter(trip -> trip.getDestination().equals(destination))
+               .stream().filter(trip -> trip.getDestination().equalsIgnoreCase(destination))
                .collect(Collectors.toList());
     }
 }
