@@ -48,4 +48,14 @@ public class BankAccountService {
         inDb = repo.save(inDb);
         return inDb;
     }
+
+    public BankAccount delete(Long accountNum) {
+        BankAccount inDb = readByAccountNum(accountNum);
+        repo.delete(inDb);
+        return inDb;
+    }
+
+    public BankAccount delete(BankAccount account) {
+        return delete(account.getAccountNum());
+    }
 }
