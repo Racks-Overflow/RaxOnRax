@@ -7,11 +7,11 @@ import javax.persistence.OneToOne;
 @Entity
 public class BankAccount {
     @Id
-    Long accountNum;
-    String govtName;
-    String email;
-    String phoneNumber; // preset length of phoneNum in SQL table
-    String address;
+    private Long accountNum;
+    private String govtName;
+    private String email;
+    private String phoneNumber; // preset length of phoneNum in SQL table
+    private String address;
 
     @OneToOne
     Account account;
