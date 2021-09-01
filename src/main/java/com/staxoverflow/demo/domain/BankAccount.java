@@ -1,40 +1,47 @@
 package com.staxoverflow.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 public class BankAccount {
     @Id
+    @Size(min = 8, max = 12)
     private Long accountNum;
-    private String govtName;
-    private String email;
-    private String phoneNumber; // preset length of phoneNum in SQL table
-    private String address;
+    @Size(min = 2)
+    private String firstName;
+    @Size(min = 2)
+    private String lastName;
+    @Size(min = 10, max = 10)
+    private Integer phoneNumber;
+    @Embedded
+    private Address address;
 
     @OneToOne
     Account account;
 
-    public BankAccount() { }
-
-    public BankAccount(Long accountNum, String govtName,
-                       String email, String phoneNumber,
-                       String address, Account account) {
+    public BankAccount(Long accountNum,
+                       String firstName,
+                       String lastName,
+                       Integer phoneNumber,
+                       Address address,
+                       Account account) {
         this.accountNum = accountNum;
-        this.govtName = govtName;
-        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.account = account;
     }
 
-    public BankAccount(Long accountNum) {
-        this(accountNum, "User",
-                null, null,
+    public BankAccount(Long accountNum, Account account) {
+        this(accountNum, "First Name",
+                 "Last Name",
+                 null,
                 null, null);
 
     }
+
 
     public Long getAccountNum() {
         return accountNum;
@@ -44,35 +51,35 @@ public class BankAccount {
         this.accountNum = accountNum;
     }
 
-    public String getGovtName() {
-        return govtName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setGovtName(String govtName) {
-        this.govtName = govtName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -80,7 +87,4 @@ public class BankAccount {
         return account;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 }
