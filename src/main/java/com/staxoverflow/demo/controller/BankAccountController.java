@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.annotation.HttpConstraint;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,7 @@ public class BankAccountController {
                 HttpStatus.CREATED);
     }
 
+
     @GetMapping(value = "/list-of-bank-account")
     public ResponseEntity<List<BankAccount>> getBankAccountList() {
         return new ResponseEntity<>(service.readAll(),
@@ -38,5 +40,5 @@ public class BankAccountController {
                 HttpStatus.OK);
     }
 
-    
+
 }
