@@ -6,12 +6,13 @@ import javax.validation.constraints.Size;
 @Entity
 public class BankAccount {
     @Id
-    @Column(name = "bankAccountNumber")
     @Size(min = 8, max = 12)
     private Long accountNum;
+    @Size(min = 2)
     private String firstName;
+    @Size(min = 2)
     private String lastName;
-    @Column(name = "phoneNumber", length = 10)
+    @Size(min = 10, max = 10)
     private Integer phoneNumber;
     @Embedded
     private Address address;
