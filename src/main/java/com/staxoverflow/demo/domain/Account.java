@@ -31,10 +31,8 @@ public class Account implements Serializable {
     @OneToOne
     private Trip adminTrip;
 
-    @Value("${username}")
     private String username;
 
-    @Value("${password}")
     private String password;
 
     private String appEmail;

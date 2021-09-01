@@ -32,19 +32,40 @@ public class AccountService implements Validator {
         * implement bank account connection between accounts and Bank Accounts
      */
 
-    // must refine next 2 methods -- I receive 'index 0 : size 0' when trying to throw an exception
-    // currently validation works for email and username -- must check DB for existingUser / existingEmail
-
-    public Boolean checkDatabaseForExistingUsername(String userInput) {
-        return readByUsername(userInput) != null; //There's an account with that field
+    public boolean checkDBForEmail(String appEmail) {
+        List<Account> accountList = readAll();
+        for (Account account : accountList) {
+            if (account.getAppEmail().equals(appEmail)) {
+                return true; //email is in db
+            }
+        }
+        return false; //email not in db
     }
 
-    public Boolean checkDatabaseForExistingEmail(String userInput) {
-        return readByEmail(userInput) != null; //There's an account with that field
+    public boolean checkDBForUsername(String username) {
+        List<Account> accountList = readAll();
+        for (Account account : accountList) {
+            if (account.getUsername().equals(username)) {
+                return true; //username is in db
+            }
+        }
+        return false; //username not in db
+    }
+
+    public Account loginAccount(String username, String password) {
+        Account inDb = readByUsername(username);
+        if (inDb.getPassword().equals(password)) {
+            return inDb;
+        }
+        throw new ResourceNotFoundException("Username and/or password are incorrect");
     }
 
     public Account create(Account account) throws Exception{
-        if (!validateEmail(account.getAppEmail())) {
+        if (checkDBForEmail(account.getAppEmail())) {
+            throw new Exception("That email is already in use");
+        } else if (checkDBForUsername(account.getUsername())) {
+            throw new Exception("That username is already in use");
+        } else if (!validateEmail(account.getAppEmail())) {
             throw new Exception("Your email does not meet our criteria");
         } else if (!validateUsername(account.getUsername())) {
             throw new Exception("Your username does not meet our criteria");
@@ -55,14 +76,20 @@ public class AccountService implements Validator {
 
     public Account read(Long id) {
         return repo.findById(id).orElseThrow(() -> new ResourceNotFoundException(
-                "That account doest exist"));
+                "That account doesn't exist"));
     }
 
-    public List<Account> readByUsername(String username) {
-            return readAll()
-                    .stream().filter(account ->
-                            account.getUsername().equals(username))
-                    .collect(Collectors.toList());
+    public Account readByUsername(String username) {
+//            return (Account) readAll()
+//                    .stream().filter(account ->
+//                            account.getUsername().equals(username));
+        List<Account> accountList = readAll();
+        for (Account account : accountList) {
+            if (account.getUsername().equals(username)) {
+                return account;
+            }
+        }
+        throw new ResourceNotFoundException("That account doesn't exist");
     }
 
     public Account readByEmail(String userInput) {
