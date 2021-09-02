@@ -18,11 +18,10 @@ public class MainConfig {
     @Value("${CLEARDB_DATABASE_PASSWORD}")
     private String password;
 
-    final private String type = "jdbc:mysql://" + db_url;
     @Bean
     public DataSource getDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url(type);
+        dataSourceBuilder.url(db_url);
         dataSourceBuilder.username(username);
         dataSourceBuilder.password(password);
         return dataSourceBuilder.build();
