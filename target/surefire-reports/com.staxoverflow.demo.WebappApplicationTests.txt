@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.staxoverflow.demo.WebappApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.689 s <<< FAILURE! - in com.staxoverflow.demo.WebappApplicationTests
-contextLoads  Time elapsed: 0.192 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.031 s <<< FAILURE! - in com.staxoverflow.demo.WebappApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalStateException: Failed to load ApplicationContext
 Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mainConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'CLEARDB_DATABASE_URL' in value "${CLEARDB_DATABASE_URL}"
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mainConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'CLEARDB_DATABASE_URL' in value "${CLEARDB_DATABASE_URL}"
