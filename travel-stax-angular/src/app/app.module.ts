@@ -5,10 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TripService } from './trip.service';
+import { Trip } from './trip.create/trip.create.component';
+import { TripCreateComponent } from './trip/trip-create/trip-create.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Trip.CreateComponent,
+    TripCreateComponent
   ],
   imports: [
     BrowserModule,
