@@ -22,10 +22,8 @@ public class Account implements Serializable {
     private String appEmail;
     private Double balance;
     private Boolean isGoing;
-
-    public enum Role {
-        ADMIN,
-        GUEST};
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToOne
     private Trip adminTrip;
@@ -51,15 +49,17 @@ public class Account implements Serializable {
                    String username,
                    String password,
                    String appEmail,
-                   Double balance) {
+                   Double balance,
+                   Role role) {
         this.staxId = staxId;
         this.username = username;
         this.password = password;
         this.appEmail = appEmail;
         this.balance = balance;
+        this.role = role;
     }
 
-//    public Account(Long staxId, List<Trip> trips,
+    //    public Account(Long staxId, List<Trip> trips,
 //                   Trip adminTrip, String username,
 //                   String password, String appEmail,
 //                   Double balance, BankAccount account,
@@ -164,6 +164,14 @@ public class Account implements Serializable {
 
     public void setActiveTrip(Trip active) {
         this.activeTrip = active;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
