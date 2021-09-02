@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: '${CLEARDB_DATABASE_URL}'
+  apiBaseUrl: 'us-cdbr-east-04.cleardb.com'
 };
 
 /*
