@@ -13,17 +13,20 @@ public class BankAccount {
     @Size(min = 2)
     private String lastName;
     @Size(min = 10, max = 10)
-    private Integer phoneNumber;
+    private Long phoneNumber;
     @Embedded
     private Address address;
 
     @OneToOne
     Account account;
 
+    public BankAccount() {
+    }
+
     public BankAccount(Long accountNum,
                        String firstName,
                        String lastName,
-                       Integer phoneNumber,
+                       Long phoneNumber,
                        Address address,
                        Account account) {
         this.accountNum = accountNum;
@@ -67,11 +70,11 @@ public class BankAccount {
         this.lastName = lastName;
     }
 
-    public Integer getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
