@@ -144,7 +144,7 @@ public class TripService {
 
     public List<Trip> findByLocation(String destination) {
       return readAll()
-               .stream().filter(trip -> trip.getDestination().equals(destination))
+               .stream().filter(trip -> trip.getDestination().equalsIgnoreCase(destination))
                .collect(Collectors.toList());
     }
 }

@@ -145,6 +145,7 @@ public class AccountService implements Validator {
         return ogAcc;
     }
 
+
     public Account updateIsGoingButTripEnded(Long id) {
         Account ogAcc = read(id);
         ogAcc.setGoing(null);
