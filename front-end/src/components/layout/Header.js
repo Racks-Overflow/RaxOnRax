@@ -14,7 +14,7 @@ export default function Header() {
 		<div>
 		<Layout>
 			<Switch>
-				<Route path="/" exact>
+				<Route path="/home" exact>
 					<Home />
                     
 				</Route>

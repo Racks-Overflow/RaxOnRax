@@ -17,7 +17,7 @@ function MainNav() {
 			<nav>
 				<ul>
 					<li>
-					 <Link to="/"className ={classes.home} >< i class="material-icons"> castle </i>Home</Link>
+					 <Link to="/home"className ={classes.home} >< i class="material-icons"> castle </i>Home</Link>
 					</li>
                     <li>
 						<Link to="/trips" className= {classes.trip}><i class="material-icons"> beach_access </i>Trips</Link>
