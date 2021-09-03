@@ -1,27 +1,18 @@
 import Tabs from "../components/account/Settings";
 import React from "react";
 import Card from "../components/ui/Card";
-import classes from './Page.module.css'
+import classes from './Account.module.css'
 
 
 function Account(){
     return (
-        <Card>
-        <div>
+        
+        <div className={classes.title}>
           <h1>Your Account</h1>
-          <Tabs>
-        <div label="Gator">
-          See ya later, <em>Alligator</em>!
+          <Tabs />
+      
         </div>
-        <div label="Croc">
-          After 'while, <em>Crocodile</em>!
-        </div>
-        <div label="Sarcosuchus">
-          Nothing to see here, this tab is <em>extinct</em>!
-        </div>
-      </Tabs>
-        </div>
-        </Card>
+        
       );
 }
 
