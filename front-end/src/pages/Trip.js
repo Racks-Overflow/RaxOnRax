@@ -1,41 +1,51 @@
-import TripList from "../components/layout/trips/TripList";
-import NewTripForm from "../components/NewStuff/NewTripForm";
-import classes from './Page.module.css'
-
-const DUMMY_DATA = [
-    {
-      id: '12',
-      number: '6',
-      double: '100.00',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    {
-      id: 'm2',
-      title: 'This is a second meetup',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-  ];
-
-function Trips(){
-    fetch(
-        
-    )
+import { useEffect, useState } from "react";
+import TripList from "../components/trip/TripList";
 
 
 
-    return <section>
-        <h1>All Trips</h1>
-        <TripList trips={DUMMY_DATA} />
-        
-        </section>
-        
-        ;
+function Trips() {
+	const [isLoading, setIsLoading] = useState(true);
+	const [loadedTrips, setLoadedTrips] = useState([]);
+
+	useEffect(() => {
+    setIsLoading(true);
+		fetch(
+      'jdbc:mysql://localhost:3306/rackdata/see-all')
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+        const trips = [];
+
+        for(const key in data){
+          const trip={
+            id: key,
+            ...data[key]
+          };
+          trips.push(trip);
+        }
+
+
+
+				setIsLoading(false);
+				setLoadedTrips(data);
+			});
+	}, []);
+
+	if (isLoading) {
+		return (
+			<section>
+				<p> Loading...</p>
+			</section>
+		);
+	}
+
+	return (
+		<section>
+			<h1>All Trips</h1>
+			<TripList trips={loadedTrips} />
+		</section>
+	);
 }
 
 export default Trips;
