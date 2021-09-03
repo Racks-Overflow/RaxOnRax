@@ -7,10 +7,13 @@ import classes from './MainNav.module.css';
 
 
 
+
+
+
 function MainNav() {
 	return (
 		<header>
-			<div className={classes.logo}><img className={classes.img} src="https://cdn.discordapp.com/attachments/862694659306029118/880950104960430111/Screen_Shot_2021-08-27_at_4.59.06_PM.png" alt="logo" /></div>
+			<div ><img className={classes.pic} src= "https://github.com/Racks-Overflow/RaxOnRax/blob/newDev/front-end/public/mainlogodark.png?raw=true" alt="logo" /></div>
 			<nav>
 				<ul>
 					<li>
