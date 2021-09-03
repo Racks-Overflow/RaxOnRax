@@ -1,4 +1,4 @@
-import SignInForm from '../components/NewStuff/SignInForm';
+import SignInForm from '../components/Forms/SignInForm';
 import classes from './Page.module.css'
 import { useHistory } from 'react-router';
 

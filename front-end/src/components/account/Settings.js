@@ -3,7 +3,7 @@ import React from "react";
 
 import '@blueprintjs/core/lib/css/blueprint.css';
 import { Tabs, Tab } from "@blueprintjs/core";
-import NewTripForm from "../NewStuff/NewTripForm";
+import NewTripForm from "../Forms/NewTripForm";
 import ChangePassword from "./ChangePassword";
 import UserName from "./Username";
   

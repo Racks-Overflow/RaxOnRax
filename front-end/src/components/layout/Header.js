@@ -16,6 +16,7 @@ export default function Header() {
 			<Switch>
 				<Route path="/" exact>
 					<Home />
+                    
 				</Route>
 				<Route path="/report-bug">
 					<ReportBug />
@@ -32,6 +33,10 @@ export default function Header() {
 			</Switch>
 		</Layout>
     </div>
+
+    
 	);
 }
+
+
 
