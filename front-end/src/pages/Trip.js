@@ -1,51 +1,41 @@
-import { useEffect, useState } from "react";
-import TripList from "../components/trip/TripList";
+import React from "react";
 
 
+import '@blueprintjs/core/lib/css/blueprint.css';
+import { Tabs, Tab } from "@blueprintjs/core";
+import NewTripForm from "../components/Forms/NewTripForm";
 
-function Trips() {
-	const [isLoading, setIsLoading] = useState(true);
-	const [loadedTrips, setLoadedTrips] = useState([]);
-
-	useEffect(() => {
-    setIsLoading(true);
-		fetch(
-      'jdbc:mysql://localhost:3306/rackdata/see-all')
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-        const trips = [];
-
-        for(const key in data){
-          const trip={
-            id: key,
-            ...data[key]
-          };
-          trips.push(trip);
-        }
-
-
-
-				setIsLoading(false);
-				setLoadedTrips(data);
-			});
-	}, []);
-
-	if (isLoading) {
-		return (
-			<section>
-				<p> Loading...</p>
-			</section>
-		);
-	}
-
-	return (
-		<section>
-			<h1>All Trips</h1>
-			<TripList trips={loadedTrips} />
-		</section>
-	);
+  
+function Trip() {
+    return (
+        <div style={{
+            display: 'block', width: 400, padding: 2
+        }}>
+            <Tabs
+                animate={true}
+                key={"vertical"}
+                vertical={false}
+            >
+                <Tab id="trip-list" title="List of Trips" panel={
+                    <p>
+                        <div>List Of Trips Coming soon.</div>
+                    </p>
+                } />
+                <Tab id="trip-admin-list" title="List of Admin Trips" panel={
+                    <p>
+                        <h2>List Of Admin Trips Coming Soon</h2>
+                    </p>
+                } />
+                <Tab id="trip-members" title="Trip Members" panel={
+                    <p>List of Members on a trip Coming soon.</p>
+                } />
+                <Tab id="new-trip" title="Make a Trip" panel={
+                    <NewTripForm />
+                } />
+            </Tabs>
+        </div >
+    );
 }
+  
+export default Trip;
 
-export default Trips;
