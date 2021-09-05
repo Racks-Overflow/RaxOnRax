@@ -1,5 +1,6 @@
 package com.staxoverflow.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Query;
@@ -32,6 +33,7 @@ public class Account implements Serializable {
     private BankAccount account;
 
     @ManyToOne (cascade = CascadeType.ALL)
+    @JsonBackReference
     @JoinColumn(name = "active_trip_id", referencedColumnName = "id")
     private Trip activeTrip;
 

@@ -2,6 +2,7 @@ package com.staxoverflow.demo.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -41,8 +42,8 @@ public class Trip implements Serializable {
     private Set<Account> guestsInvited = new HashSet<>();
 
 
-    @JsonIgnore
-    @OneToMany (mappedBy = "activeTrip")
+    @JsonManagedReference
+    @OneToMany
     private Set<Account> attendees;
 
     public Trip() {

@@ -21,6 +21,10 @@ public class TripService {
     @Autowired
     private TripRepo repo;
 
+    @Autowired
+    private AccountRepo accountRepo;
+
+
 
     //start trip button-front end
     //create newAdminAccount
@@ -63,6 +67,10 @@ public class TripService {
     public Trip activate(Long id, Boolean active) {
         Trip original = read(id);
         original.setActive(active);
+        Set <Account> guests = original.getGuestsInvited();
+        for (Account guest : guests) {
+            guest.setActiveTrip(original);
+        }
         return repo.save(original);
     }
 

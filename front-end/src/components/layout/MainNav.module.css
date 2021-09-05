@@ -47,7 +47,7 @@
   border:1px;
   border-radius: 10px;
   padding:0px;
-  max-width: 100%;
+  max-width: auto;
   max-height: auto;
   background-color: #B3B3B3;
   overflow: auto;
@@ -62,7 +62,7 @@
 }
 
 .nav a{
-  padding: 10px;
+  padding: 0px;
   display: block, flex;
   text-decoration: none;
   letter-spacing: .5px;
@@ -131,7 +131,7 @@ a.active {
 .trip{
   color: #72A603;
   text-shadow: -.5px -.5px #4F7302;
-  float:left;
+  float: left;
    border-right: solid 2px #000000;
 }
 
