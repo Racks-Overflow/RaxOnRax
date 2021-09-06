@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 
+
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
@@ -47,7 +48,7 @@ const rows = [
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-export default function DataTable() {
+export default function Invite() {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid

@@ -4,6 +4,8 @@ import React from "react";
 import '@blueprintjs/core/lib/css/blueprint.css';
 import { Tabs, Tab } from "@blueprintjs/core";
 import NewTripForm from "../components/Forms/NewTripForm";
+import Invite from "../components/trip/Invite";
+
 
   
 function Trip() {
@@ -23,11 +25,11 @@ function Trip() {
                 } />
                 <Tab id="trip-admin-list" title="List of Admin Trips" panel={
                     <p>
-                        <h2>List Of Admin Trips Coming Soon</h2>
+                       <Invite />
                     </p>
                 } />
                 <Tab id="trip-members" title="Trip Members" panel={
-                    <p>List of Members on a trip Coming soon.</p>
+                    <p></p>
                 } />
                 <Tab id="new-trip" title="Make a Trip" panel={
                     <NewTripForm />
