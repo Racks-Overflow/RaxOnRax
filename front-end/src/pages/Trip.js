@@ -1,41 +1,43 @@
-import TripList from "../components/layout/trips/TripList";
-import NewTripForm from "../components/NewStuff/NewTripForm";
-import classes from './Page.module.css'
-
-const DUMMY_DATA = [
-    {
-      id: '12',
-      number: '6',
-      double: '100.00',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    {
-      id: 'm2',
-      title: 'This is a second meetup',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-  ];
-
-function Trips(){
-    fetch(
-        
-    )
+import React from "react";
 
 
+import '@blueprintjs/core/lib/css/blueprint.css';
+import { Tabs, Tab } from "@blueprintjs/core";
+import NewTripForm from "../components/Forms/NewTripForm";
+import Invite from "../components/trip/Invite";
 
-    return <section>
-        <h1>All Trips</h1>
-        <TripList trips={DUMMY_DATA} />
-        
-        </section>
-        
-        ;
+
+  
+function Trip() {
+    return (
+        <div style={{
+            display: 'block', width: 400, padding: 2
+        }}>
+            <Tabs
+                animate={true}
+                key={"vertical"}
+                vertical={false}
+            >
+                <Tab id="trip-list" title="List of Trips" panel={
+                    <p>
+                        <div>List Of Trips Coming soon.</div>
+                    </p>
+                } />
+                <Tab id="trip-admin-list" title="List of Admin Trips" panel={
+                    <p>
+                       <Invite />
+                    </p>
+                } />
+                <Tab id="trip-members" title="Trip Members" panel={
+                    <p></p>
+                } />
+                <Tab id="new-trip" title="Make a Trip" panel={
+                    <NewTripForm />
+                } />
+            </Tabs>
+        </div >
+    );
 }
+  
+export default Trip;
 
-export default Trips;

@@ -3,9 +3,10 @@ import React from "react";
 
 import '@blueprintjs/core/lib/css/blueprint.css';
 import { Tabs, Tab } from "@blueprintjs/core";
-import NewTripForm from "../NewStuff/NewTripForm";
+import NewTripForm from "../Forms/NewTripForm";
 import ChangePassword from "./ChangePassword";
 import UserName from "./Username";
+
   
 function Settings() {
     return (
@@ -30,8 +31,8 @@ function Settings() {
                 <Tab id="creditCard" title="Credit Card" panel={
                     <p>Sample Content 1</p>
                 } />
-                <Tab id="trips" title="Make a Trip" panel={
-                    <NewTripForm />
+                <Tab id="balance" title="Check Balance" panel={
+                    <div><h2>hello</h2></div>
                 } />
             </Tabs>
         </div >
