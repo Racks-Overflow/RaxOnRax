@@ -18,6 +18,7 @@ public interface Validator {
                 Pattern.CASE_INSENSITIVE);
         return emailRegex.matcher(email).matches();
     }
+
     // checks password strength (must include AT LEAST one special character//number//be at least 8-20 chars
     default boolean validatePassword(String password) {
         final Pattern passwordRegex = Pattern.compile(

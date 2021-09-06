@@ -18,7 +18,7 @@ function Home(){
         No more sending money back and forth with 4-5 different apps -cause everyone always has a different one- OR forcing your poor waiter to split the bill! Pay the tab and keep the fun going!       
         </p>
 
-    <aside> Pro tip! If you want you can take a look at our build-a-trip questionaire without signing in. </aside>
+    <aside> Pro tip! If you want you can take a look at our build-a-trip questionnaire without signing in. </aside>
     </div></section>);
     }
 
