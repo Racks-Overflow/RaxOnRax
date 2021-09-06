@@ -6,7 +6,7 @@ import TripItem from "./TripItem";
 function TripList(props) {
 	return (
 		<ul className={classes.list}>
-			{props.trips.map(trip => (
+			{props.trips.map((trip) => (
 				<TripItem
 					key={trip.id}
 					id={trip.id}

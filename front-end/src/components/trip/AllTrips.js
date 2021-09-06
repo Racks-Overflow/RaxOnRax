@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TripList from "../components/trip/TripList";
+import TripList from "./TripList";
 
 const dummydata =[
     {

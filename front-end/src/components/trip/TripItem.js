@@ -6,26 +6,26 @@ import FavoritesContext from "../../store/favorite-context";
 import { useContext } from "react";
 
 function TripItem(props) {
-	const favoritesCtx = useContext(FavoritesContext);
+	// const favoritesCtx = useContext(FavoritesContext);
 
-	const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
+	// const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
 
-	function toggleFavoriteStatusHandler() {
-		if (itemIsFavorite) {
-			FavoritesContext.removeFavorite(props.id);
-		} else {
-			favoritesCtx.addFavorite({
-				id: props.id,
-				destination: props.destination,
-				groupSize: props.groupSize,
-				tripEstimate: props.tripEstimate,
-				balance: props.balance,
-				totalSpent: props.totalSpent,
-				estimatePerPerson: props.estematePerPerson,
-				isActive: props.isActive,
-			});
-		}
-	}
+	// function toggleFavoriteStatusHandler() {
+	// 	if (itemIsFavorite) {
+	// 		FavoritesContext.removeFavorite(props.id);
+	// 	} else {
+	// 		favoritesCtx.addFavorite({
+	// 			id: props.id,
+	// 			destination: props.destination,
+	// 			groupSize: props.groupSize,
+	// 			tripEstimate: props.tripEstimate,
+	// 			balance: props.balance,
+	// 			totalSpent: props.totalSpent,
+	// 			estimatePerPerson: props.estematePerPerson,
+	// 			isActive: props.isActive,
+	// 		});
+	// 	}
+	// }
 
 	return (
 		<li className={classes.item}>
@@ -40,9 +40,10 @@ function TripItem(props) {
 					<h3>{props.isActive}</h3>
 				</div>
 				<div className={classes.actions}>
-					<button onClick={toggleFavoriteStatusHandler}>
+					<button onClick=" ">Pay {props.balance} </button>
+					{/* <button onClick={toggleFavoriteStatusHandler}>
 						{itemIsFavorite ? "Remove from Favorites" : "To Favorites"}
-					</button>
+					</button> */}
 				</div>
 			</Card>
 		</li>

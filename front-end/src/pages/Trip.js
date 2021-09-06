@@ -5,6 +5,7 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import { Tabs, Tab } from "@blueprintjs/core";
 import NewTripForm from "../components/Forms/NewTripForm";
 import Invite from "../components/trip/Invite";
+import Trips from "../components/trip/AllTrips";
 
 
   
@@ -20,7 +21,7 @@ function Trip() {
             >
                 <Tab id="trip-list" title="List of Trips" panel={
                     <p>
-                        <div>List Of Trips Coming soon.</div>
+                        <div><Trips /></div>
                     </p>
                 } />
                 <Tab id="trip-admin-list" title="List of Admin Trips" panel={
