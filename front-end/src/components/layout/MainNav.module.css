@@ -23,6 +23,9 @@
     
    
   }
+  ul{
+    display: flex;
+  }
 
 .pic {
   border:0px;
