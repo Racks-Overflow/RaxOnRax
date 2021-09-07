@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 // import './TripUsers.moddule.css'
 
