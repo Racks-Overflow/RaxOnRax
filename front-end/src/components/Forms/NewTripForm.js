@@ -22,7 +22,7 @@ function NewTripForm(props) {
 			date: enteredDate,
 		};
 		
-		props.onAddTrip(tripdata);
+		props.onNewTrip(tripdata);
 
 	}
 		
@@ -42,7 +42,7 @@ function NewTripForm(props) {
 					<input type="number" required ref={tripEstimationInputRef} />
 				</div>
 				<div className={classes.actions}>
-					<button> Add Trip</button>
+					<button > Add Trip</button>
 				</div>
 			</form>
 		</Card>
