@@ -1,2 +1,2 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar "target/sttax-overflow.jar"  -Dspring.profiles
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar "target/stax-overflow.jar"  -Dspring.profiles
 .active=test
