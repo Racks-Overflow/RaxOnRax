@@ -2,11 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
-  background-color: #fcf3f6;
-}
+
 
 h1 {
   font-size: 2.5rem;
@@ -18,13 +14,14 @@ h2 {
   color: #2c292b;
 }
 * {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
   font-family: sans-serif;
   margin: 3rem;
   background-color: white;
+  
 }
 
 .btn {
@@ -32,20 +29,20 @@ body {
   
   cursor: pointer;
   border-radius: 4px;
-  background-color: #800040;
+  background-color: #170080;
   color: white;
-  border: 1px solid #800040;
+  border: 1px solid #020080;
   margin: 0 1rem;
 }
 
 .btn:hover {
-  background-color: #9c1458;
-  border-color: #9c1458;
+  background-color: #141d9c;
+  border-color: #22149c;
 }
 
 .btn--alt {
   background-color: transparent;
-  color: #800040;
+  color: #000980;
 }
 
 .btn--alt:hover {
@@ -81,7 +78,7 @@ body {
   position: fixed;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.75);
-  width: 100%;
+  width: 200%;
   height: 100vh;
   top: 0;
   left: 0;

@@ -1,5 +1,5 @@
 
-* {
+/* * {
   margin: 5px;
   border:5px;
   padding:5px;
@@ -10,7 +10,7 @@
   body{
     background-color: #404040;
   }
-
+*/
   header {
     margin: 0px;
     border:2px;   
@@ -23,24 +23,28 @@
     
    
   }
+  ul{
+    display: flex;
+  }
 
 .pic {
+  float: left;
   border:0px;
-  padding:0px;
-  display:block;
-  margin-left: auto;
-  margin-right:auto;
-  max-width: 40%;
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+  
+  max-width: 10%;
   max-height: auto;
   background-color: #272626;
   background-size: 100%;
-  object-fit: scale-down;
+  /* object-fit: scale-down; */
 }
 
 .h {
   font-family: 'Lancelot', Garamond, serif;
  
-}
+} 
 
 .nav {
   
@@ -54,7 +58,7 @@
   overflow: auto;
   align-content: center;
   position: sticky;
-  position: -webkit-sticky;
+  position:-webkit-sticky;
   top: 0;
   border-bottom: solid 2px #000000;
   box-shadow: -1px -1px 1px 1px #808080;
@@ -63,13 +67,11 @@
 }
 
 .nav a{
-  padding: 10px;
+  padding: 1px;
   display: block, flex;
   text-decoration: none;
   letter-spacing: .5px;
   text-align: center;
- 
-  
 }
 
 .material-icons {

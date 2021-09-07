@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
+import classes from './Invite.module.css'
 
 
 const columns = [

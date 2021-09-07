@@ -4,6 +4,7 @@ import classes from "./TripItem.module.css";
 import Card from "../ui/Card";
 import FavoritesContext from "../../store/favorite-context";
 import { useContext } from "react";
+import PayModal from "./PayModal";
 
 function TripItem(props) {
 	// const favoritesCtx = useContext(FavoritesContext);
@@ -40,10 +41,7 @@ function TripItem(props) {
 					<h3>{props.isActive}</h3>
 				</div>
 				<div className={classes.actions}>
-					<button onClick=" ">Pay {props.balance} </button>
-					{/* <button onClick={toggleFavoriteStatusHandler}>
-						{itemIsFavorite ? "Remove from Favorites" : "To Favorites"}
-					</button> */}
+					<PayModal></PayModal>
 				</div>
 			</Card>
 		</li>
