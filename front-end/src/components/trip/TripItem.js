@@ -41,10 +41,7 @@ function TripItem(props) {
 					<h3>{props.isActive}</h3>
 				</div>
 				<div className={classes.actions}>
-					<button onClick={PayModal}>Pay {props.balance} </button>
-					{/* <button onClick={toggleFavoriteStatusHandler}>
-						{itemIsFavorite ? "Remove from Favorites" : "To Favorites"}
-					</button> */}
+					<PayModal></PayModal>
 				</div>
 			</Card>
 		</li>

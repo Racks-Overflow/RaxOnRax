@@ -2,9 +2,10 @@ import { Route , Switch} from "react-router-dom";
 import Account from "../../pages/Account";
 import Home from "../../pages/Home";
 import ReportBug from "../../pages/ReportBug";
-import SignIn from "../../pages/SignIn";
+import SignIn from "../../pages/Login";
 import Trips from "../../pages/Trip";
 import Layout from "./Layout";
+import SignUp from "../../pages/CreateLogin";
 
 
 
@@ -16,7 +17,6 @@ export default function Header() {
 			<Switch>
 				<Route path="/home" exact>
 					<Home />
-                    
 				</Route>
 				<Route path="/report-bug">
 					<ReportBug />
@@ -29,6 +29,9 @@ export default function Header() {
 				</Route>
 				<Route path="/sign-in">
 					<SignIn />
+				</Route>
+				<Route path="/sign-up">
+					<SignUp />
 				</Route>
 			</Switch>
 		</Layout>
