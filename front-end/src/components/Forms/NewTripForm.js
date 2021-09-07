@@ -22,11 +22,10 @@ function NewTripForm(props) {
 			date: enteredDate,
 		};
 		
-	props.onAddTrip(tripdata);
+		props.onAddTrip(tripdata);
 
 	}
 		
-
 	return (
 		<Card>
 			<form className={classes.form} onSubmit={submitHandler}>

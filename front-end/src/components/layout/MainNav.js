@@ -3,19 +3,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from './MainNav.module.css';
-
-
-
-
-
-
+import logo from '../../assets/mainlogodark.png';
 
 function MainNav() {
 	return (
 		<header>
-			<div ><img className={classes.pic} src= "https://github.com/Racks-Overflow/RaxOnRax/blob/newDev/front-end/public/mainlogodark.png?raw=true" alt="logo" /></div>
+			
 			<nav>
 				<ul>
+					<div><img className={classes.pic} src= {logo} alt="logo" /></div>
 					<li>
 					 <Link to="/home"className ={classes.home} >< i class="material-icons"> castle </i>Home</Link>
 					</li>
@@ -29,10 +25,10 @@ function MainNav() {
 						<Link to="/report-bug" className={classes.issue}><i class="material-icons"> sentiment_very_dissatisfied </i>Report Bug</Link>
 					</li>
                     <li>
-						<Link to="/sign-in" className= {classes.join}><i class="material-icons"> celebration </i>Create Account</Link>
+						<Link to="/sign-in" className= {classes.join}><i class="material-icons"> celebration </i>Login</Link>
 					</li>
 					<li>
-					<Link to="/about-us" className= {classes.about}><i class="material-icons"> emoji_people </i></Link>
+					<Link to="/about-us" className= {classes.about}><i class="material-icons"> emoji_people </i>About Us</Link>
 					</li>
 				</ul>
 			</nav>

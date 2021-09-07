@@ -1,18 +1,18 @@
 import React from "react";
-
-
 import '@blueprintjs/core/lib/css/blueprint.css';
 import { Tabs, Tab } from "@blueprintjs/core";
 import NewTripForm from "../components/Forms/NewTripForm";
 import Invite from "../components/trip/Invite";
 import Trips from "../components/trip/AllTrips";
+import TripUsers from "../components/trip/TripUsers";
+
 
 
   
 function Trip() {
     return (
         <div style={{
-            display: 'block', width: 400, padding: 2
+            display: 'block', width: 1000, padding: 15
         }}>
             <Tabs
                 animate={true}
@@ -30,7 +30,7 @@ function Trip() {
                     </p>
                 } />
                 <Tab id="trip-members" title="Trip Members" panel={
-                    <p></p>
+                    <TripUsers />
                 } />
                 <Tab id="new-trip" title="Make a Trip" panel={
                     <NewTripForm />
