@@ -12,7 +12,7 @@ function MainNav() {
 				<nav className={styles.mainNav}>
 				<ul className={styles.navList}>
 					<li>
-					 <Link className={styles.navListItem} to="/home"  >< i class="material-icons"> castle </i>Home</Link>
+					 <Link className={styles.navListItem} to="/"  >< i class="material-icons"> castle </i>Home</Link>
 					</li>
 					<li>
 						<Link className={styles.navListItem} to="/account" ><i class="material-icons"> auto_awesome </i> Account</Link>
