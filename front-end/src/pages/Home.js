@@ -1,9 +1,9 @@
-import classes from './Page.module.css'
-
 
 function Home(){
     
-    return  ( <section>
+    return (
+
+            <section>
     <div>
         <h1> StaxOverFlow </h1>
     <h2 > This is where your next great adventure begins!</h2>
@@ -15,8 +15,20 @@ function Home(){
                 <li> Save, save, save! Everyone contributing to the same goal in equal amounts; we like things fair and square. </li> 
                 <li>Then once you start your trip the savings account becomes a spend account that you, and whatever poor soul you dragged along, can use to pay for group activities with!</li>
             </ol> 
-        No more sending money back and forth with 4-5 different apps -cause everyone always has a different one- OR forcing your poor waiter to split the bill! Pay the tab and keep the fun going!       
-        </p>
+                No more sending money back and forth with 4-5 different apps -cause everyone always has a different one- OR forcing your poor waiter to split the bill! Pay the tab and keep the fun going!
+        We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+                We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
+
+               
+    </p>
 
     <aside> Pro tip! If you want you can take a look at our build-a-trip questionaire without signing in. </aside>
     </div></section>);

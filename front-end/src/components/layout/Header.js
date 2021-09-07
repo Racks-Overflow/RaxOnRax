@@ -5,15 +5,20 @@ import ReportBug from "../../pages/ReportBug";
 import SignIn from "../../pages/SignIn";
 import Trips from "../../pages/Trip";
 import Layout from "./Layout";
+import logoHeader from "../../assets/logoleftcropped.jpeg";
+import classes from "./Header.module.css";
 
 
 
 
 export default function Header() {
 	return (
+		
 		<div>
-		<Layout>
-			<Switch>
+			
+			<div>
+			<Layout>
+				<Switch>
 				<Route path="/home" exact>
 					<Home />
                     
@@ -30,10 +35,13 @@ export default function Header() {
 				<Route path="/sign-in">
 					<SignIn />
 				</Route>
-			</Switch>
-		</Layout>
+				</Switch>
+				
+			</Layout>
+			</div>
+			
     </div>
-
+		
     
 	);
 }

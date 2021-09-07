@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 5px;
     border:5px;
     padding:5px;
@@ -140,4 +140,4 @@
     text-shadow: -.5px -.5px  #4B0066;
     float: left;
     /* border-left:solid 2px #000000; */
-  }
+ 
