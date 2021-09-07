@@ -11,7 +11,7 @@ import UserName from "./Username";
 function Settings() {
     return (
         <div style={{
-            display: 'block', width: 400, padding: 2
+            display: 'block', width: 1000, padding: 2
         }}>
             <Tabs
                 animate={true}

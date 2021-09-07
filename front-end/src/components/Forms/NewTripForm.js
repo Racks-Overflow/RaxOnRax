@@ -30,16 +30,20 @@ function NewTripForm(props) {
 		<Card>
 			<form className={classes.form} onSubmit={submitHandler}>
 				<div className={classes.control}>
-					<label htmlFor="title">Trip Destinatoin</label>
+					<label htmlFor="title">Trip Destination</label>
 					<input type="text" required id="destination" ref={destinationInputeRef} />
 				</div>
 				<div className={classes.control}>
-					<label htmlFor="date">When</label>
+					<label htmlFor="date">Date</label>
 					<input type="date" required id="date" ref={dateInputRef} />
 				</div>
 				<div className={classes.control}>
-					<label htmlFor="price">Group Price</label>
+					<label htmlFor="price">Group Estimate</label>
 					<input type="number" required ref={tripEstimationInputRef} />
+				</div>
+				<div className={classes.control}>
+					<label htmlFor="price">Group Size</label>
+					<input type="number" minLength="1" maxLength="200" required ref={tripEstimationInputRef} />
 				</div>
 				<div className={classes.actions}>
 					<button > Add Trip</button>

@@ -13,7 +13,7 @@ const dummydata =[
     {
         id: '2',
         adminUsername: 'user2',
-		destination: 'Maraco',
+		destination: 'Morocco',
 		tripEstimate: '25,000',
 		balance: '0',
 		isActive: 'true'

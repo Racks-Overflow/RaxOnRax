@@ -24,12 +24,12 @@ function Trip() {
                         <div><Trips /></div>
                     </p>
                 } />
-                <Tab id="trip-admin-list" title="List of Admin Trips" panel={
+                <Tab id="trip-admin-list" title="Manage Trips" panel={
                     <p>
-                       <Invite />
+                       {/* <Invite /> change table to drop down list table */}
                     </p>
                 } />
-                <Tab id="trip-members" title="Trip Members" panel={
+                <Tab id="trip-members" title="Trip" panel={
                     <TripUsers />
                 } />
                 <Tab id="new-trip" title="Make a Trip" panel={

@@ -48,28 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-  const [validationErr, setValidationErrs] = useState({});
-  const [currentUser, setCurrentUser] = useState({
-	  username: "",
-	  password: ""
-  })
-
-  function handleChange(event){
-	  setCurrentUser({
-		  ...currentUser,
-		  [event.target.name]: eveent.target.value,
-	  })
-  }
-  function validationInputs(values){
-	  const errors ={};
-	  if(!values.username){
-		  
-	  }
-  }
-
-
-
-
+  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
