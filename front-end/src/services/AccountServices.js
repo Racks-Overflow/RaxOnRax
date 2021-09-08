@@ -27,6 +27,35 @@ const findUserById=(userId)=>{
         userId,
     });
 };
+const findUserByName = (username)=>{
+    return axios.get(ACCOUNT_URL+"find-account-username/{username}",{
+        username,
+    });
+};
+const updateEmail = (appEmail, userId) => {
+    return axios.put(ACCOUNT_URL+"{id}/update-account-email/{email}",{
+        userId,
+        appEmail,
+    });
+};
+const updateIsGoing = (isGoing, userId) => {
+    return axios.put(ACCOUNT_URL+"{id}/update-is-going",{
+        userId,
+        isGoing,
+    });
+};
+const updateBalance = (balance, userId) => {
+    return axios.put(ACCOUNT_URL+"{id}/update-balance/{cost}",{
+        userId,
+        balance,
+    });
+};
 
+// const deleteUser = (userId) => {
+//     return axios.put(ACCOUNT_URL+"{id}/update-account-username/{username}",{
+//         userId,
+//         username,
+//     });
+// };
 
 

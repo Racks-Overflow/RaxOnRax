@@ -39,7 +39,7 @@ function NewTripForm(props) {
 				</div>
 				<div className={classes.control}>
 					<label htmlFor="price">Group Estimate</label>
-					<input type="number" required ref={tripEstimationInputRef} />
+					<input type="number" minLength="50" maxLength="1000000"required ref={tripEstimationInputRef} />
 				</div>
 				<div className={classes.control}>
 					<label htmlFor="price">Group Size</label>

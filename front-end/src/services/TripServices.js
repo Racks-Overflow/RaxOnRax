@@ -48,20 +48,20 @@ const removeGuest = (tripId, accountId) => {
 }
 
 const poolFunds = (tripId) => {
-    return axios.update(TRIP_API+"{id}/pool-funds",{
+    return axios.put(TRIP_API+"{id}/pool-funds",{
         tripId,
     });
 }
 
 const payBill= (id, balance) => {
-    return axios.update(TRIP_API+"{id}/pay/{cost}",{
+    return axios.put(TRIP_API+"{id}/pay/{cost}",{
         id,
         balance,
     });
 }
 
 const endTrip = (tripId) => {
-    return axios.update(TRIP_API+"{id}/return-trip-funds",{
+    return axios.put(TRIP_API+"{id}/return-trip-funds",{
         tripId,
     });
 }
