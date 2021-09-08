@@ -13,13 +13,13 @@ const create= (accountNum, firstName, lastName, phoneNumber, address) => {
 };
 
 const findBankAccById =(accountNum) => {
-    return axios.get(BANK_API+"bank-account/{accountNum}",{
+    return axios.get(BANK_API+"bank-account/"+accountNum,{
         accountNum,
     });
 };
 
 const updateAccount= (accountNum) => {
-    return axios.update(BANK_API+"update/{id}",{
+    return axios.update(BANK_API+"update/"+accountNum,{
         accountNum,
     });
 };

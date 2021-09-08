@@ -16,52 +16,52 @@ const getAllTrips = () => {
 };
 
 const getTripById = (id) => {
-    return axios.get(TRIP_API+"find-trip/{id}",{
+    return axios.get(TRIP_API+"find-trip/"+id,{
         id,
     });
 }
 
 const getTripByDestination = (destination) => {
-    return axios.get(TRIP_API+"find-destination/{destination}",{
+    return axios.get(TRIP_API+"find-destination/"+destination,{
         destination,
     });
 }
 
 const addGuest =(tripId, accountId) => {
-    return axios.post(TRIP_API+"{trip_id}/invite/{accountId}",{
+    return axios.post(TRIP_API+tripId+"/invite/"+accountId,{
         tripId,
         accountId,
     });
 }
 const assignAdmin = (tripId, accountId) => {
-    return axios.post(TRIP_API, "{trip_id}/assign-admin/{accountId}",{
+    return axios.post(TRIP_API+tripId+"/assign-admin/"+accountId,{
         tripId,
         accountId,
     });
 }
 
 const removeGuest = (tripId, accountId) => {
-    return axios.delete(TRIP_API+"{tripId}/remove/{accountId}",{
+    return axios.delete(TRIP_API+tripId+"/remove/"+accountId,{
         tripId,
         accountId,
     });
 }
 
 const poolFunds = (tripId) => {
-    return axios.put(TRIP_API+"{id}/pool-funds",{
+    return axios.put(TRIP_API+tripId+"/pool-funds",{
         tripId,
     });
 }
 
 const payBill= (id, balance) => {
-    return axios.put(TRIP_API+"{id}/pay/{cost}",{
+    return axios.put(TRIP_API+id+"/pay/"+balance,{
         id,
         balance,
     });
 }
 
 const endTrip = (tripId) => {
-    return axios.put(TRIP_API+"{id}/return-trip-funds",{
+    return axios.put(TRIP_API+tripId+"/return-trip-funds",{
         tripId,
     });
 }
