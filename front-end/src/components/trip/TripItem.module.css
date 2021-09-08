@@ -22,7 +22,7 @@
   
   .content h3 {
     font-size: 1.25rem;
-    color: #2c292b;
+    color: #1f1f1f;
   }
   
   .actions {
@@ -33,14 +33,16 @@
   .actions button {
     font: inherit;
     cursor: pointer;
-    color: #77002e;
-    border: 1px solid #77002e;
-    background-color: transparent;
+    color: #1f1f1f;
+    border: 1px solid #02374D;
+    background-color: #049DD9;
     padding: 0.5rem 1.5rem;
     border-radius: 4px;
   }
   
   .actions button:hover,
   .actions button:active {
-    background-color: #ffe2ed;
+    background-color: #2585D9;
+    border: #0d2f4d;
+    color: #d8d8d8
   }

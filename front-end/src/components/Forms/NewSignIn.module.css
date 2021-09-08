@@ -1,22 +1,15 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: montserrat, sans-serif;
-}
 
 input, button{
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
+  background: #049DD9;
+  border: #02374D;
+  
 }
 .App{
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #53565a;
+  background-color: #535353;
 }
 
 form {
@@ -32,18 +25,20 @@ form {
     bottom: -5;
     right: -5;
     z-index: 1;
-    background-image: linear-gradient(to bottom right, #3ce7c2, #035528);
+    background-color: #d8d8d8;
+    border: #1f1f1f;
 
   }
   form.inner-form{
     position: relative;
     display: block;
-    background-color: white;
+    background-color: #2585D9;
+    border: #0D2F4D;
     padding: 30px;
     z-index: 2;
   }
   form .form-inner h2{
-    color: #888;
+    color: #868686;
     font-size: 28px;
     font-weight: 500;
     margin-bottom: 30px;
@@ -56,23 +51,23 @@ form {
 
   form .form-inner .form-group label{
     display: block;
-    color: #666;
+    color: #535353;
     font-size: 12px;
     margin-bottom: 5px;
     transition: .45s;
   }
 form .form-inner .form-group:focus-within label{
-  color:#77002e;
+  color:#038C8C;
 }
 form .form-inner .form-group input{
   display: block; 
   width: 100%;
   padding: 10px 15px;
-  background-color: #77002e;
+  background-color: #038C8C;
   border-radius: 8px;
   transition: .4s;
 }
 form .form-inner .form-group input:focus {
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 3px #1f1f1f;
 
 }

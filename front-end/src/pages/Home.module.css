@@ -1,4 +1,13 @@
-.startUpSteps {
-    list-style: initial;
-    border: 0;
+h1 {
+  font-size: 80px;
+  color: #1f1f1f;
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  text-align:center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #1f1f1f;
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+
 }

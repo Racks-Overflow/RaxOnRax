@@ -14,18 +14,21 @@
   top:0;
   border-bottom: solid 2px #000000;
   will-change:transform;
+  
 }
 
 .navList {
   list-style:none;
   box-sizing: border-box;
   overflow: visible;
+  font-family: 'Encode Sans', sans-serif;
 }
 
-li {
+.navList li {
   display: inline;
   box-sizing: border-box;
   border-right: 1px solid #1f1f1f;
+  
 }
 
 .issue {
