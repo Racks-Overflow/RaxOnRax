@@ -1,3 +1,4 @@
+import styles from './Home.module.css';
 
 function Home(){
     
@@ -8,7 +9,7 @@ function Home(){
         <h1> StaxOverFlow </h1>
     <h2 > This is where your next great adventure begins!</h2>
     <p> We are here to help you create priceless moments during the trip of your dreams. We do this by helping you set, track, and accomplish a savings goal to share with a group. Once the fun begins you all can relax and know your money is ready to be spent effortlessly on the things that matter most. The steps are pretty simple:
-            <ol>
+            <ol className={styles.startUpSteps}>
                 <li> Get the boring stuff out of the way and create your account. </li>
                 <li> Use our build-a-trip questionnaire to get an estimate for your next trip. Just an estimate - we don't have a crystal ball...yet. </li>
                 <li> Invite everyone! Ok...maybe not everyone but there has to be someone willing to spend time with you. </li>
