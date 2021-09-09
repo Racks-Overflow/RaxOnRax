@@ -1,0 +1,76 @@
+@import-normalize;
+
+body {
+  margin: 3px;
+  background-image: url("assets/darkbackgroundcropped.png");
+  font-family: 'Encode Sans', sans-serif;
+   box-sizing: border-box;
+}
+
+/* .btn {
+  font-family: 'Encode Sans', sans-serif;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #049DD9;
+  color: #1f1f1f;
+  border: 1px solid #02374D;
+  margin: 0 1rem;
+} */
+ 
+/* .btn:hover {
+  font-family: 'Encode Sans', sans-serif;
+  background-color: #2585D9;
+  border-color: #0D2F4D;
+  color : #d8d8d8;
+} */
+
+/* .btn--alt {
+  font-family: 'Encode Sans', sans-serif;
+  background-color: #1f1f1f;
+  color: #049DD9;
+} */
+
+/* .btn--alt:hover {
+  font-family: 'Encode Sans', sans-serif;
+  background-color: #d8d8d8;
+  color: #2585D9; 
+} */
+
+.card {
+  font-family: 'Encode Sans', sans-serif;
+  background-color: #d8d8d8;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px #1f1f1f;
+  padding: 1rem;
+  width: 20rem;
+}
+
+.actions {
+  font-family: 'Encode Sans', sans-serif;
+  text-align: right;
+}
+
+/* .modal {
+  font-family: 'Encode Sans', sans-serif;
+  box-shadow: 0 1px 4px #1f1f1f;
+  border-radius: 6px;
+  background-color: #d8d8d8;
+  padding: 1rem;
+  text-align: center;
+  width: 30rem;
+  z-index: 10;
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 15rem);
+} */
+
+/* .backdrop {
+  font-family: 'Encode Sans', sans-serif;
+  position: fixed;
+  z-index: 1;
+  background-color: #1f1f1f;
+  width: 200%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+} */
