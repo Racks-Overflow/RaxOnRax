@@ -7,7 +7,7 @@ function NewTripPage() {
 	const history = useHistory();
 
 	function addTripHandler(tripData) {
-		fetch("https://stax-67bce-default-rtdb.firebaseio.com/addtrip.json", 
+		fetch("http://localhost:8080/tripcontroller/create", 
 		{
 			method: "POST",
 			body: JSON.stringify(tripData),

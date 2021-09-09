@@ -5,8 +5,12 @@ import Card from "../ui/Card";
 import FavoritesContext from "../../store/favorite-context";
 import { useContext } from "react";
 import PayModal from "./PayModal";
+import TripServices from "../../services/TripServices";
 
 function TripItem(props) {
+	
+	
+	
 	// const favoritesCtx = useContext(FavoritesContext);
 
 	// const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
@@ -32,6 +36,7 @@ function TripItem(props) {
 		<li className={classes.item}>
 			<Card>
 				<div className={classes.content}>
+					<h3>{props.id}</h3>
 					<h3>{props.destination}</h3>
 					<h3>{props.groupSize}</h3>
 					<h3>{props.tripEstimate}</h3>
@@ -41,7 +46,6 @@ function TripItem(props) {
 					<h3>{props.isActive}</h3>
 				</div>
 				<div className={classes.actions}>
-					<PayModal></PayModal>
 				</div>
 			</Card>
 		</li>

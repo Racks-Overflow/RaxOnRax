@@ -6,7 +6,8 @@ import 'react-app-polyfill/stable'
 
 
 export default function App() {
-	
+	const [currentUser, setCurrentUser]= useState();
+	const [page, setPage]= useState();
 
 
 	// const adminUser = {

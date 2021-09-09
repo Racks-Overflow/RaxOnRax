@@ -1,9 +1,9 @@
-import axios from "axios";
+import http from "./http-common";
 
-const BANK_API ="http://localhost3300/bank/";
+
 
 const create= (accountNum, firstName, lastName, phoneNumber, address) => {
-    return axios.create(BANK_API+"create", {
+    return axios.create("bank/create", {
         accountNum,
         firstName,
         lastName,
@@ -13,19 +13,19 @@ const create= (accountNum, firstName, lastName, phoneNumber, address) => {
 };
 
 const findBankAccById =(accountNum) => {
-    return axios.get(BANK_API+"bank-account/{accountNum}",{
+    return http.get(`bank/bank-account/${accountNum}`,{
         accountNum,
     });
 };
 
 const updateAccount= (accountNum) => {
-    return axios.update(BANK_API+"update/{id}",{
+    return http.update(`bank/update/${accountNum}`,{
         accountNum,
     });
 };
 
 const deleteAccount =(accountNum) => {
-    return axios.delete(BANK_API+"delete-bank-acc",{
+    return http.delete(`bank/delete-bank-acc`,{
         accountNum
     });
 };
