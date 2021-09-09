@@ -1,9 +1,0 @@
-{ 
-    "username" : "Mock User",
-    "password" : "passw0rd",
-    "appEmail" : "muser123@gmail.com",
-    "balance"  : 0.00,
-    "isGoing"  : false,
-    "role"  : "ADMIN",
-    "adminTrip" : null    
-}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import classes from './Invite.module.css'
+import UserList from '../userData/UserList';
 
 
 const columns = [
@@ -12,15 +13,14 @@ const columns = [
     editable: true,
   },
   {
-    field: 'balnce',
+    field: 'balance',
     headerName: 'Balance',
     width: 150,
     editable: true,
   },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
+    field: 'destination',
+    headerName: 'Trip',
     width: 110,
     editable: true,
   },
