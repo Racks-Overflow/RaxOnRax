@@ -5,8 +5,12 @@ import Card from "../ui/Card";
 import FavoritesContext from "../../store/favorite-context";
 import { useContext } from "react";
 import PayModal from "./PayModal";
+import TripServices from "../../services/TripServices";
 
 function TripItem(props) {
+	
+	let service=TripServices.getAllTrips;
+	
 	// const favoritesCtx = useContext(FavoritesContext);
 
 	// const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);

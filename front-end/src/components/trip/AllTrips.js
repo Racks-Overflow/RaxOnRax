@@ -1,35 +1,9 @@
 import { useEffect, useState } from "react";
+import TripServices from "../../services/TripServices";
 import TripList from "./TripList";
 
-const dummydata =[
-    {
-        id: '1',
-        adminUsername: 'user2',
-		destination: 'Istanbol',
-		tripEstimate: '25,000',
-		balance: '0',
-		isActive: 'true'
-    },
-    {
-        id: '2',
-        adminUsername: 'user2',
-		destination: 'Morocco',
-		tripEstimate: '25,000',
-		balance: '0',
-		isActive: 'true'
-    },
-    {
-        id: '3',
-        adminUsername: 'user3',
-		destination: 'Singapore',
-		tripEstimate: '25,000',
-		balance: '0',
-		isActive: 'true'
-    },
-]
-
-
 function Trips() {
+
 	// const [isLoading, setIsLoading] = useState(true);
 	// const [loadedTrips, setLoadedTrips] = useState([]);
 
@@ -69,7 +43,7 @@ function Trips() {
 	return (
 		<section>
 			<h1>All Trips</h1>
-			<TripList trips={dummydata} />
+			<TripList />
 		</section>
 	);
 }

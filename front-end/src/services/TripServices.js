@@ -1,70 +1,82 @@
-import axios from "axios";
+import http from "./http-common";
 
-const TRIP_API ="http://localhost3300/tripcontroller/";
 
-const createTrip = (destination, date, groupSize, totalEstimate) => {
-    return axios.post(TRIP_API + "create", {
-        destination,
-        date,
-        groupSize,
-        totalEstimate,
+const createTrip = (
+    date,
+    destination,
+    groupSize,
+    tripEstimate,
+    ) => {
+    return http.post(`tripcontroller/create`,
+    {
+        "date":date,
+        "destination":destination,
+        "groupSize": groupSize,
+        "tripEstimate":tripEstimate,
+        "groupBalance": 0,
+        "totalSpent": 0,
+        "estimatePerPerson":0,
+        "isActive":false,
+        "admin":null,
     });
 };
 
 const getAllTrips = () => {
-    return axios.get(TRIP_API + "see-all");
+    return http.get("tripcontroller/see-all");
 };
 
-const getTripById = (id) => {
-    return axios.get(TRIP_API+"find-trip/"+id,{
+const getTripById = id => {
+    return http.get(`tripcontroller/find-trip/${id}`,{
         id,
     });
 }
 
-const getTripByDestination = (destination) => {
-    return axios.get(TRIP_API+"find-destination/"+destination,{
+const getTripByDestination = destination => {
+    return http.get(`tripcontroller/find-destination/${destination}`,{
         destination,
     });
 }
 
 const addGuest =(tripId, accountId) => {
-    return axios.post(TRIP_API+tripId+"/invite/"+accountId,{
+    return http.post(`tripcontroller/${tripId}/invite/${accountId}`,{
         tripId,
         accountId,
     });
 }
 const assignAdmin = (tripId, accountId) => {
-    return axios.post(TRIP_API+tripId+"/assign-admin/"+accountId,{
+    return http.post(`tripcontroller/${tripId}/assign-admin/${accountId}`,{
         tripId,
         accountId,
     });
 }
 
 const removeGuest = (tripId, accountId) => {
-    return axios.delete(TRIP_API+tripId+"/remove/"+accountId,{
+    return http.delete(`tripcontroller/${tripId}/remove/${accountId}`,{
         tripId,
         accountId,
     });
 }
 
-const poolFunds = (tripId) => {
-    return axios.put(TRIP_API+tripId+"/pool-funds",{
+const poolFunds = tripId => {
+    return http.put(`tripcontroller/${tripId}/pool-funds`,{
         tripId,
     });
 }
 
 const payBill= (id, balance) => {
-    return axios.put(TRIP_API+id+"/pay/"+balance,{
+    return http.put(`tripcontroller/${id}/pay/${balance}`,{
         id,
         balance,
     });
 }
 
 const endTrip = (tripId) => {
-    return axios.put(TRIP_API+tripId+"/return-trip-funds",{
+    return http.put(`tripcontroller/${tripId}/return-trip-funds`,{
         tripId,
     });
 }
+
+
 
 export default {
     createTrip,
