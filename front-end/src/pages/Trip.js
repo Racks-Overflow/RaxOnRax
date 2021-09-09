@@ -30,7 +30,7 @@ function Trip() {
                 } />
                 <Tab id="trip-admin-list" title="Manage Trips" panel={
                     
-                       <UserComponent />
+                       <Invite />
                 
                 } />
                 <Tab id="trip-members" title="Trip" panel={

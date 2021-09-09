@@ -24,13 +24,6 @@ function TripList(props) {
 
 export default TripList;
 
-
-
-
-
-
-
-
 // import React, { useState, useEffect } from "react";
 // import TripServices from "../../services/TripServices";
 // import { Link } from "react-router-dom";
