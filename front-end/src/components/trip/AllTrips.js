@@ -2,48 +2,45 @@ import { useEffect, useState } from "react";
 import TripServices from "../../services/TripServices";
 import TripList from "./TripList";
 
-function Trips() {
+function Trips(props) {
 
-	// const [isLoading, setIsLoading] = useState(true);
-	// const [loadedTrips, setLoadedTrips] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [loadedTrips, setLoadedTrips] = useState([]);
 
-	// useEffect(() => {
-    // setIsLoading(true);
-	// 	fetch(
-    //   'jdbc:mysql://localhost:3306/rackdata/see-all')
-	// 		.then((response) => {
-	// 			return response.json();
-	// 		})
-	// 		.then((data) => {
-    //     const trips = [];
+	useEffect(() => {
+    setIsLoading(true);
+		fetch(
+      'http://localhost:8080/tripcontroller/see-all')
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+        const trips = [];
 
-    //     for(const key in data){
-    //       const trip={
-    //         id: key,
-    //         ...data[key]
-    //       };
-    //       trips.push(trip);
-    //     }
+        for(const key in data){
+          const trip={
+            id: key,
+            ...data[key]
+          };
+          trips.push(trip);
+        }
+				setIsLoading(false);
+				setLoadedTrips(data);
+			});
+	}, []);
 
-
-
-	// 			setIsLoading(false);
-	// 			setLoadedTrips(data);
-	// 		});
-	// }, []);
-
-	// if (isLoading) {
-	// 	return (
-	// 		<section>
-	// 			<p> Loading...</p>
-	// 		</section>
-	// 	);
-	// }
+	if (isLoading) {
+		return (
+			<section>
+				<p> Loading...</p>
+			</section>
+		);
+	}
 
 	return (
 		<section>
 			<h1>All Trips</h1>
-			<TripList />
+			<TripList trips={loadedTrips}/>
 		</section>
 	);
 }

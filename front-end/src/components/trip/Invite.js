@@ -4,7 +4,7 @@ import classes from './Invite.module.css'
 
 
 const columns = [
-  { field: 'tripId', headerName: 'ID', width: 90 },
+  { field: 'staxId', headerName: 'ID', width: 90 },
   {
     field: 'username',
     headerName: 'User',

@@ -9,7 +9,7 @@ import TripServices from "../../services/TripServices";
 
 function TripItem(props) {
 	
-	let service=TripServices.getAllTrips;
+	
 	
 	// const favoritesCtx = useContext(FavoritesContext);
 
@@ -36,6 +36,7 @@ function TripItem(props) {
 		<li className={classes.item}>
 			<Card>
 				<div className={classes.content}>
+					<h3>{props.id}</h3>
 					<h3>{props.destination}</h3>
 					<h3>{props.groupSize}</h3>
 					<h3>{props.tripEstimate}</h3>
@@ -45,7 +46,6 @@ function TripItem(props) {
 					<h3>{props.isActive}</h3>
 				</div>
 				<div className={classes.actions}>
-					<PayModal></PayModal>
 				</div>
 			</Card>
 		</li>

@@ -1,4 +1,4 @@
-import classes from "./TripList.module.css";
+import classes from "../trip/TripList.module.css";
 import UserItem from "./UserItem";
 
 function UserList(props) {
@@ -7,14 +7,11 @@ function UserList(props) {
 			{props.users.map((user) => (
 				<UserItem
 					key={user.id}
-					id={user.id}
 					username={user.username}
-					password={user.password}
 					appEmail={user.appEmail}
 					balance={user.balance}
 					isGoing={user.isGoing}
-					role={user.role}
-					adminTrip={user.adminTrip}
+					Role={user.Role}
 				/>
 			))}
 		</ul>

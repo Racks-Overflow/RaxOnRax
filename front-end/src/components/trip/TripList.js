@@ -1,3 +1,36 @@
+import classes from "./TripList.module.css";
+import TripItem from "./TripItem";
+
+function TripList(props) {
+	return (
+		<ul className={classes.list}>
+			{props.trips.map((trip) => (
+				<TripItem
+					key={trip.id}
+					id={trip.id}
+					destination={trip.destination}
+					gropuSize={trip.groupSize}
+					tripEstimate={trip.tripEstimate}
+					balance={trip.balance}
+					totalSpent={trip.totalSpent}
+					estimatePerPerson={trip.estimatePerPerson}
+					isActive={trip.isActive}
+					
+				/>
+			))}
+		</ul>
+	);
+}
+
+export default TripList;
+
+
+
+
+
+
+
+
 // import React, { useState, useEffect } from "react";
 // import TripServices from "../../services/TripServices";
 // import { Link } from "react-router-dom";
@@ -148,5 +181,3 @@
 //     </div>
 //   );
 // };
-function TripList(){return<h1>Hello</h1>}
-export default TripList;
