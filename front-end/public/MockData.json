@@ -1,9 +1,40 @@
-{ 
-    "username" : "Mock User",
-    "password" : "passw0rd",
+{
+"Users": [
+    { 
+    "username" : "Jon Snow",
+    "password" : "ic3br3aker",
     "appEmail" : "muser123@gmail.com",
-    "balance"  : 0.00,
+    "balance"  : 230.00,
     "isGoing"  : false,
     "role"  : "ADMIN",
     "adminTrip" : null    
+    },
+    { 
+    "username" : "Cersei Lannister",
+    "password" : "w1ck3d1",
+    "appEmail" : "muser123@gmail.com",
+    "balance"  : 1000.00,
+    "isGoing"  : false,
+    "role"  : "ADMIN",
+    "adminTrip" : null    
+    },
+    { 
+    "username" : "Celica Limbert",
+    "password" : "passwh0rds",
+    "appEmail" : "muser123@gmail.com",
+    "balance"  : 50.00,
+    "isGoing"  : false,
+    "role"  : "ADMIN",
+    "adminTrip" : null    
+    },
+    { 
+    "username" : "Arya Stark",
+    "password" : "n33dle14",
+    "appEmail" : "muser123@gmail.com",
+    "balance"  : 17.00,
+    "isGoing"  : false,
+    "role"  : "ADMIN",
+    "adminTrip" : null    
+    }
+]
 }
