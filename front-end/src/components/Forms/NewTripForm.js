@@ -4,10 +4,13 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewTripForm.module.css";
 
+
 function NewTripForm(props) {
+	
 	const destinationInputeRef = useRef();
 	const tripEstimationInputRef = useRef();
 	const dateInputRef = useRef();
+	const groupSizeInputRef=useRef();
 
 	function submitHandler(event) {
 		event.preventDefault();
@@ -15,14 +18,17 @@ function NewTripForm(props) {
 		const enteredDestination = destinationInputeRef.current.value;
 		const enteredTripEstimate = tripEstimationInputRef.current.value;
 		const enteredDate = dateInputRef.current.value;
+		const enteredGroupSize= groupSizeInputRef.current.value;
 
-		const tripdata = {
+		const tripData = {
 			destination: enteredDestination,
 			tripEstimate: enteredTripEstimate,
 			date: enteredDate,
+			groupSize: enteredGroupSize,
+
 		};
 		
-		props.onNewTrip(tripdata);
+		props.onNewTrip(tripData)
 
 	}
 		
@@ -42,8 +48,8 @@ function NewTripForm(props) {
 					<input type="number" minLength="50" maxLength="1000000"required ref={tripEstimationInputRef} />
 				</div>
 				<div className={classes.control}>
-					<label htmlFor="price">Group Size</label>
-					<input type="number" minLength="1" maxLength="200" required ref={tripEstimationInputRef} />
+					<label htmlFor="group">Group Size</label>
+					<input type="number" minLength="1" maxLength="200" required ref={groupSizeInputRef} />
 				</div>
 				<div className={classes.actions}>
 					<button > Add Trip</button>

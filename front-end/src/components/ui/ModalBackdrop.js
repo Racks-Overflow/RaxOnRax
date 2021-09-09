@@ -9,7 +9,7 @@ function Modal(props) {
 
   return (
     <div className='modal'>
-      <p>Are you sure you want to pay {props.balancee}? </p>
+      <p>Are you sure you want to pay {props.balance}? </p>
       <button className='btn btn--alt' onClick={cancelHandler}>
         Cancel
       </button>

@@ -4,16 +4,16 @@ import classes from './Invite.module.css'
 
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'staxId', headerName: 'ID', width: 90 },
   {
-    field: 'firstName',
-    headerName: 'First name',
+    field: 'username',
+    headerName: 'User',
     width: 150,
     editable: true,
   },
   {
-    field: 'lastName',
-    headerName: 'Last name',
+    field: 'balnce',
+    headerName: 'Balance',
     width: 150,
     editable: true,
   },
