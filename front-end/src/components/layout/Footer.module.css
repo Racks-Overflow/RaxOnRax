@@ -1,0 +1,33 @@
+.footer{
+    max-width: 100%;
+    max-height: auto;
+    background-image: url("/Users/bobbiz/Dev/RaxOnRax/front-end/src/assets/gradient.png");
+    position: relative;
+    bottom: 0;
+   
+}
+
+.quote{
+    text-align: center;
+    font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+    color: #1f1f1f;
+}
+
+.emailDiv {
+    max-width: 100%;
+    max-height: auto;
+    
+}
+
+div .email {
+   
+    font-family: 'Encode Sans', sans-serif;
+    font-weight:lighter;
+    font-size: 100%;
+    color: #353535;
+    text-decoration: none;
+    position: relative;
+    padding-right: 50%;
+    
+  
+}

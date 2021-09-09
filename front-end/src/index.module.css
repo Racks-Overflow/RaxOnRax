@@ -2,14 +2,12 @@
 
 body {
   margin: 3px;
-  background-image: url("assets/background.jpeg");
+  background-image: url("assets/darkbackgroundcropped.png");
   font-family: 'Encode Sans', sans-serif;
    box-sizing: border-box;
 }
 
-
-
-.btn {
+/* .btn {
   font-family: 'Encode Sans', sans-serif;
   cursor: pointer;
   border-radius: 4px;
@@ -17,26 +15,26 @@ body {
   color: #1f1f1f;
   border: 1px solid #02374D;
   margin: 0 1rem;
-}
+} */
  
-.btn:hover {
+/* .btn:hover {
   font-family: 'Encode Sans', sans-serif;
   background-color: #2585D9;
   border-color: #0D2F4D;
   color : #d8d8d8;
-}
+} */
 
-.btn--alt {
+/* .btn--alt {
   font-family: 'Encode Sans', sans-serif;
   background-color: #1f1f1f;
   color: #049DD9;
-}
+} */
 
-.btn--alt:hover {
+/* .btn--alt:hover {
   font-family: 'Encode Sans', sans-serif;
   background-color: #d8d8d8;
   color: #2585D9; 
-}
+} */
 
 .card {
   font-family: 'Encode Sans', sans-serif;
@@ -52,7 +50,7 @@ body {
   text-align: right;
 }
 
-.modal {
+/* .modal {
   font-family: 'Encode Sans', sans-serif;
   box-shadow: 0 1px 4px #1f1f1f;
   border-radius: 6px;
@@ -64,9 +62,9 @@ body {
   position: fixed;
   top: 20vh;
   left: calc(50% - 15rem);
-}
+} */
 
-.backdrop {
+/* .backdrop {
   font-family: 'Encode Sans', sans-serif;
   position: fixed;
   z-index: 1;
@@ -75,4 +73,4 @@ body {
   height: 100vh;
   top: 0;
   left: 0;
-}
+} */
