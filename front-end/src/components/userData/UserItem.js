@@ -29,6 +29,7 @@ function UserItem(props) {
 		<li className={classes.item}>
 			<Card>
 				<div className={classes.content}>
+                    <h3>{props.id}</h3>
 					<h3>{props.username}</h3>
 					<h3>{props.password}</h3>
 					<h3>{props.appEmail}</h3>

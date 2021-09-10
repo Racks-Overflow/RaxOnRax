@@ -4,12 +4,12 @@ import http from "./http-common";
 
 const createAccount =(username, password, appEmail, balance, isGoing, Role) =>{
     return http.create(`base-account/create`,{
-        username,
-        password,
-        appEmail,
-        balance,
-        isGoing,
-        Role,
+        "username": username,
+        "password":password,
+        "appEmail":appEmail,
+        "balance": 0,
+        "isGoing":false,
+        "role": false,
     });
 };
 

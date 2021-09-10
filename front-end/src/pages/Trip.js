@@ -9,6 +9,7 @@ import TripUsers from "../components/trip/TripUsers";
 import NewTripPage from "../components/Forms/NewTrip";
 
 import UserComponent from "../components/userData/UserComponent";
+import ManageTrips from "../components/trip/ManageTrips";
 
 
 
@@ -28,9 +29,14 @@ function Trip() {
                         <div><Trips /></div>
                     </p>
                 } />
+                <Tab id="trip-list" title="List of Trips" panel={
+                    <p>
+                        <div><Trips /></div>
+                    </p>
+                } />
                 <Tab id="trip-admin-list" title="Manage Trips" panel={
                     
-                       <Invite />
+                       <ManageTrips />
                 
                 } />
                 <Tab id="trip-members" title="Trip" panel={
