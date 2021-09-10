@@ -1,0 +1,61 @@
+
+.mainNav {
+  box-sizing: border-box;
+  margin: max-height;
+  border:1px;
+  border-radius: 10px;
+  padding:0px;
+  max-width: 100%;
+  max-height: auto;
+  background-color: #72A603;
+  overflow: visible;
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
+  border-bottom: solid 2px #000000;
+  will-change:transform;
+}
+
+.navList {
+  list-style:none;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+li {
+  display: inline;
+  box-sizing: border-box;
+  border-right: 1px solid #1f1f1f;
+}
+
+.issue {
+float: right;
+color: #1f1f1f;
+font-size: 30px;
+padding: 5px;
+display: inline;
+box-sizing: border-box;
+}
+
+.navListItem {
+color: #1f1f1f;
+font-size: 30px;
+padding: 5px;
+display: inline;
+box-sizing: border-box;
+}
+
+/* .headerLogoDiv {
+  margin-top: 0;
+  max-width: 100%;
+  max-height: auto;
+  background-clip: padding-box;
+  background-color: #1f1f1f;
+}
+
+.logoHeader{
+  border: 0;
+  overflow: hidden visible;
+  max-width: 100%;
+  max-height: auto;  
+} */
