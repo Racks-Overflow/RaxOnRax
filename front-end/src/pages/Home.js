@@ -6,7 +6,7 @@ function Home(){
 
     <section>
         <div className={styles.h1Container}>
-            <h1 className={styles.homeH1}> StaxOverFlow </h1>
+            <h1 className={styles.homeH1}> Welcome to StaxOverFlow! </h1>
         </div>
             <div>
                 <h2 className={styles.homeh2}> This is where your next great adventure begins!</h2>
