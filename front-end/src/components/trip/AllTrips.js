@@ -10,7 +10,7 @@ function Trips(props) {
 	useEffect(() => {
     setIsLoading(true);
 		fetch(
-      'http://localhost:8080/tripcontroller/see-all')
+      'https://stax-overflow.herokuapp.com/tripcontroller/see-all')
 			.then((response) => {
 				return response.json();
 			})

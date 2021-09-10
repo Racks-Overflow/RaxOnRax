@@ -11,7 +11,7 @@ export default function ManageTrips(){
   });
 
  const travellers=(
-     fetch(`http://localhost:8080/tripcontroller/{id}/get-guests`)
+     fetch('https://stax-overflow.herokuapp.com/tripcontroller/{id}/get-guests')
      .then((response) => {
         return response.json();
     })

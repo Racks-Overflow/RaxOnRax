@@ -82,7 +82,7 @@ export default function Invite(props) {
 
 	useEffect(() => {
     setIsLoading(true);
-		fetch("http://localhost:8080/tripcontroller")
+		fetch("https://stax-overflow.herokuapp.com/tripcontroller")
 			.then((response) => {
 				return response.json();
 			})
