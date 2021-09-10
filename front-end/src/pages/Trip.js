@@ -10,11 +10,7 @@ import NewTripPage from "../components/Forms/NewTrip";
 
 import UserComponent from "../components/userData/UserComponent";
 import ManageTrips from "../components/trip/ManageTrips";
-
-
-
-  
-function Trip() {
+export function Trip() {
     return (
         <div style={{
             display: 'block', width: 1000, padding: 15
@@ -36,7 +32,7 @@ function Trip() {
                 } />
                 <Tab id="trip-admin-list" title="Manage Trips" panel={
                     
-                       <ManageTrips />
+                       <UserComponent />
                 
                 } />
                 <Tab id="trip-members" title="Trip" panel={
