@@ -51,7 +51,7 @@ function UserComponent() {
 
 	useEffect(() => {
     setIsLoading(true);
-		fetch("http://localhost:8080/base-account/account-list")
+		fetch("https://stax-overflow.herokuapp.com/base-account/account-list")
 			.then((response) => {
 				return response.json();
 			})

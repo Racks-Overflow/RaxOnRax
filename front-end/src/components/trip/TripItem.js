@@ -46,6 +46,7 @@ function TripItem(props) {
 					<h3>{props.isActive}</h3>
 				</div>
 				<div className={classes.actions}>
+					<PayModal />
 				</div>
 			</Card>
 		</li>

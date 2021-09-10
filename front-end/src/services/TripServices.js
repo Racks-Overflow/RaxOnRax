@@ -38,13 +38,13 @@ const getTripByDestination = destination => {
 }
 
 const addGuest =(tripId, accountId) => {
-    return http.post(`tripcontroller/${tripId}/invite/${accountId}`,{
+    return http.put(`tripcontroller/${tripId}/invite/${accountId}`,{
         tripId,
         accountId,
     });
 }
 const assignAdmin = (tripId, accountId) => {
-    return http.post(`tripcontroller/${tripId}/assign-admin/${accountId}`,{
+    return http.put(`tripcontroller/${tripId}/assign-admin/${accountId}`,{
         tripId,
         accountId,
     });

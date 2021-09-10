@@ -7,7 +7,7 @@ function NewTripPage() {
 	const history = useHistory();
 
 	function addTripHandler(tripData) {
-		fetch("http://localhost:8080/tripcontroller/create", 
+		fetch("https://stax-overflow.herokuapp.com/tripcontroller/create",
 		{
 			method: "POST",
 			body: JSON.stringify(tripData),

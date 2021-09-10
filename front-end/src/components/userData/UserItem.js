@@ -1,34 +1,35 @@
 import classes from "../trip/TripItem.module.css";
 
 import Card from "../ui/Card";
-
+import UserContext from "../../store/tripUser-context";
 import { useContext } from "react";
 
 function UserItem(props) {
-	// const favoritesCtx = useContext(FavoritesContext);
+	const favoritesCtx = useContext(UserContext);
 
-	// const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
+	const userIsGoing = favoritesCtx.userIsGoing(props.id);
 
-	// function toggleFavoriteStatusHandler() {
-	// 	if (itemIsFavorite) {
-	// 		FavoritesContext.removeFavorite(props.id);
-	// 	} else {
-	// 		favoritesCtx.addFavorite({
-	// 			id: props.id,
-	// 			username: props.username,
-    //             password:props.password,
-    //             appEmail: props.appEmail,
-    //             balance: props.balance,
-    //             isGoing: props.isGoing,
-    //             Role: props.Role,
-	// 		});
-	// 	}
-	// }
+	function toggleUserStatusHandler() {
+		if (userIsGoing) {
+			UserContext.removeFavorite(props.id);
+		} else {
+			favoritesCtx.addFavorite({
+				id: props.id,
+				username: props.username,
+                password:props.password,
+                appEmail: props.appEmail,
+                balance: props.balance,
+                isGoing: props.isGoing,
+                Role: props.Role,
+			});
+		}
+	}
 
 	return (
 		<li className={classes.item}>
 			<Card>
 				<div className={classes.content}>
+                    <h3>{props.id}</h3>
 					<h3>{props.username}</h3>
 					<h3>{props.password}</h3>
 					<h3>{props.appEmail}</h3>
@@ -37,9 +38,9 @@ function UserItem(props) {
 					<h3>{props.Role}</h3>
 				</div>
 				<div className={classes.actions}>
-					{/* <button onClick={toggleUserStatusHandler}>
+					<button onClick={toggleUserStatusHandler}>
 						{userIsGoing ? "Remove from Trip" : "Add to Trip"}
-					</button> */}
+					</button>
 				</div>
 			</Card>
 		</li>
