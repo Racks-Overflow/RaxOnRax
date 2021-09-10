@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Welcome to StaxOverFlow</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/logoONLY25.png" />
+    <!--I think this sets the icon on the tab...not sure-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Use for Device Scaling-->
+    <meta name="theme-color" content="#1f1f1f" media="color-scheme:dark"/>
+    <!--Sets a base color for browsers to use-->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logoONLY25.png" />
+    <!--Pretty sure this is for a potential apple icon-->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>StaxRebuild</title>
+    <!--Shows up in the tab-->
     <meta name="keywords" content="HTML, JavaScript, CSS">
     <meta name="author" content="BobbiZ, CharW, DeeM, NickW">
     <meta name="description" content="Group travel savings wallet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- for device scaling -->
-        <!-- need to add <base href="URL" target="_blank"> -->
-        <!-- need to add <script src=""> -->
-    <div id="root"></div>
+    <!--meta data-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Used for icons-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--Used for fonts-->
   </head>
-
   <body>
-    
-
-    
-</body>
-
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!-- Ideal layout would be NavBar, Header, MainBody, Footer-->
+  </body>
 </html>
-
-

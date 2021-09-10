@@ -1,8 +1,24 @@
 h1 {
-  font-size: 80px;
+  font-size: 2.5rem;
   color: #1f1f1f;
   font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
-  text-align:center;
+}
+
+.homeH1 {
+background-color:  #049DD9;
+max-width: 100%;
+max-height: auto;
+text-align: center;
+margin-bottom: 0;
+}
+
+.h1Container {
+  /* margin:50%; */
+  max-width: 100%;
+  max-height: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h2 {
@@ -10,4 +26,50 @@ h2 {
   color: #1f1f1f;
   font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
 
+
+}
+
+.homeh2 {
+  margin-top:0;
+  background-color:  #2585D9;
+  text-align: center;
+   margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.mainInfo {
+
+  background-color: #d8d8d8;
+  opacity: 0.5;
+  text-align: justify;
+  max-width: 50%;
+  max-height: auto;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+p{
+  max-width: 90%;
+  max-height: auto;
+   margin-left: auto;
+  margin-right: auto;
+}
+
+.asideDiv {
+color: #72A603;
+   background-color: #1f1f1f;
+  opacity: 0.5;
+  text-align: justify;
+  font-weight: bold;
+  max-width: 50%;
+  max-height: auto;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+aside {
+  padding: 20px;
+  text-align: center;
 }
