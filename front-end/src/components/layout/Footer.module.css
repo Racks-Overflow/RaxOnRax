@@ -2,7 +2,6 @@
     max-width: 100%;
     max-height: auto;
     background-image: url("/Users/bobbiz/Dev/RaxOnRax/front-end/src/assets/gradient.png");
-    background-image
     position: relative;
     bottom: 0;
    
@@ -22,18 +21,23 @@
 .emailDiv {
     max-width: 100%;
     max-height: auto;
+     margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     
 }
 
-div .email {
+.email {
    
     font-family: 'Encode Sans', sans-serif;
     font-weight:lighter;
     font-size: 100%;
     color: #353535;
     text-decoration: none;
-    position: relative;
-    padding-right: 50%;
+    /* max-width: 100%;
+    max-height: auto;
+    margin-left: auto;
+    margin-right: auto; */
     
   
 }

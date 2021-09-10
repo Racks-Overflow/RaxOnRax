@@ -14,7 +14,7 @@ margin-bottom: 0;
 
 .h1Container {
   /* margin:50%; */
-  max-width: 50%;
+  max-width: 100%;
   max-height: auto;
   text-align: center;
   margin-left: auto;
@@ -35,7 +35,7 @@ h2 {
   text-align: center;
    margin-left: auto;
   margin-right: auto;
-  max-width: 50%;
+  max-width: 100%;
   max-height: auto;
 }
 
@@ -55,4 +55,21 @@ p{
   max-height: auto;
    margin-left: auto;
   margin-right: auto;
+}
+
+.asideDiv {
+color: #72A603;
+   background-color: #1f1f1f;
+  opacity: 0.5;
+  text-align: justify;
+  font-weight: bold;
+  max-width: 50%;
+  max-height: auto;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+aside {
+  padding: 20px;
+  text-align: center;
 }

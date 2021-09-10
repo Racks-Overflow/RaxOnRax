@@ -14,7 +14,7 @@ function Layout(props){
             </div>
             <div className={classes.topGradientDiv}>
                 <img className={classes.topGradient} src={topGradient} alt="small gradient" />
-                </div>
+            </div>
             
             {props.children}
         </main>
