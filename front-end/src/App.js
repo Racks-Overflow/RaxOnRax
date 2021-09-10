@@ -2,7 +2,9 @@
 import { useState } from "react";
 import Header from "./components/layout/Header";
 import SignInForm from "./components/Forms/LoginForm";
-import 'react-app-polyfill/stable'
+import 'react-app-polyfill/stable';
+import Footer from "./components/layout/Footer"
+
 
 
 export default function App() {
@@ -43,8 +45,9 @@ export default function App() {
 	return(
 		<section>
 			<div><Header /></div>
-			
+			<div><Footer /></div>
 		</section>
+
 	)
 }
 	
