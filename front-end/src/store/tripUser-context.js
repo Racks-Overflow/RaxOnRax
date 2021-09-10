@@ -1,45 +1,45 @@
 import { createContext, useState } from "react";
 
-const FavoritesContext = createContext({
-    favorites: [],
-    totalFavorites: 0,
-    addFavorite: (favoriteTrip) =>{},
-    userIsGoing: (tripId) => {},
-    removeFavorite: (tripId) => {}
+const UserContext = createContext({
+    travellerList: [],
+    totalTravellers: 0,
+    addTraveller: (traveller) =>{},
+    userIsGoing: () => {},
+    removeTraveller: () => {}
 });
 
-export function FavoritesContetProvider(props){
-    const [userFavorites, setUserFavorites]=useState([]);
+  export function UserContextProvider(props){
+    const [traveller, setTraveller]=useState([]);
 
-    function addFavoriteHandler(){
-        setUserFavorites((prevUserFavorites) => { 
-            return prevUserFavorites.concat(favoriteTrip);
+    function addTravellerHandler(){
+        setTraveller((prevTraveller) => { 
+            return prevTraveller.concat(traveller);
         });
     }
 
-    function removeFavoriteHandler(){
-        setUserFavorites(prevUserFavorites => {
-            return prevUserFavorites.filter(trip => trip.id !== tripId);
+    function removeTravellerHandler(){
+        setTraveller(prevTraveller => {
+            return prevTraveller.filter(user => user.id !== user);
         });
     }
 
-    function itemIsFavoriteHandler(){
-        return userFavorites.some(trip => trip.id === tripId);
+    function travellerIsGoingHandler(){
+        return traveller.some(user => user.id === user);
     }
 
 
     const context ={
-        favorites: userFavorites,
-        totaltFavorites: userFavorites.length,
-        addFavorite: addFavoriteHandler,
-        removeFavorite: removeFavoriteHandler,
-        itemIsFavorite: itemIsFavoriteHandler
+        travellerlist: traveller,
+        totalTravellers: traveller.length,
+        addTraveller: addTravellerHandler,
+        removeTraveller: removeTravellerHandler,
+        traveller: travellerIsGoingHandler
 
     };
 
 
-    return <FavoritesContext.Provider value={context}>
+    return <UserContext.Provider value={context}>
 {props.children}
-    </FavoritesContext.Provider>
+    </UserContext.Provider>
 }
-export default FavoritesContext;
+export default UserContext;

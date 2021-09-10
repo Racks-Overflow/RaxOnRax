@@ -9,11 +9,8 @@ import TripUsers from "../components/trip/TripUsers";
 import NewTripPage from "../components/Forms/NewTrip";
 
 import UserComponent from "../components/userData/UserComponent";
-
-
-
-  
-function Trip() {
+import ManageTrips from "../components/trip/ManageTrips";
+export function Trip() {
     return (
         <div style={{
             display: 'block', width: 1000, padding: 15
@@ -28,9 +25,14 @@ function Trip() {
                         <div><Trips /></div>
                     </p>
                 } />
+                <Tab id="trip-list" title="List of Trips" panel={
+                    <p>
+                        <div><Trips /></div>
+                    </p>
+                } />
                 <Tab id="trip-admin-list" title="Manage Trips" panel={
                     
-                       <Invite />
+                       <UserComponent />
                 
                 } />
                 <Tab id="trip-members" title="Trip" panel={
