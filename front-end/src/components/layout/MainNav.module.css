@@ -21,6 +21,9 @@
   overflow: auto;
   background-color: #72A603;
   max-width:100%;
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
   /* max-height: 100%;
   will-change:transform;
   object-position: center;

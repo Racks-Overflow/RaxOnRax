@@ -1,8 +1,9 @@
 .footer{
     max-width: 100%;
     max-height: auto;
-    /* background-image: url("/Users/bobbiz/Dev/RaxOnRax/front-end/src/assets/gradient.png"); */
+    background-image: url("../../assets/gradient.png");
     position: relative;
+
     bottom: 0;
    
 }
